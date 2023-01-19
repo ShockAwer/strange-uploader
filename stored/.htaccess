@@ -1,0 +1,10 @@
+# RewriteEngine On
+# RewriteCond %{HTTP_REFERER} ^$ [OR]
+# RewriteCond %{HTTP_REFERER} ^http://ime\.nu/
+# RewriteRule ^.*$ - [F]
+
+#SetEnvIf REFERER ^$ BadReferer
+SetEnvIf REFERER ^http://ime\.nu/ BadReferer
+Order Allow,Deny
+Allow from all
+Deny from env=BadReferer
