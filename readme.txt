@@ -106,4 +106,4 @@ Terms of Use
 
 About the author
   Chinen <chinen@yasashiku.site.ne.jp>
-  http://yasashiku.site.ne.jp/uploader/
+  https://web.archive.org/web/2/http://yasashiku.site.ne.jp/uploader/
