@@ -1,35 +1,35 @@
-#! /usr/local/bin/perl
+#! /usr/bin/perl
 #
-#  ‚¸‚é‚Ú‚ñ‚ ‚Õ‚ë‚¾‚©‚çƒƒOŒ`®‚ğƒRƒ“ƒo[ƒg‚·‚éCGIƒXƒNƒŠƒvƒg
-#                                    i2000”N9Œ3“ú”ÅˆÈ~‚Ìƒo[ƒWƒ‡ƒ“‚É‘Î‰j
+#  ãšã‚‹ã¼ã‚“ã‚ã·ã‚ã ã‹ã‚‰ãƒ­ã‚°å½¢å¼ã‚’ã‚³ãƒ³ãƒãƒ¼ãƒˆã™ã‚‹CGIã‚¹ã‚¯ãƒªãƒ—ãƒˆ
+#                                    ï¼ˆ2000å¹´9æœˆ3æ—¥ç‰ˆä»¥é™ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã«å¯¾å¿œï¼‰
 #
 #
-#  g‚¢•û
-#  E•ÏŠ·‚µ‚½‚¢ƒtƒ@ƒCƒ‹‚Æ“¯‚¶ƒfƒBƒŒƒNƒgƒŠ‚É’u‚¢‚ÄÀs‚µ‚Ü‚·B
-#  Eƒtƒ@ƒCƒ‹‚Ææ“ª•¶š‚ğw’è‚µA•ÏŠ·ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢B
+#  ä½¿ã„æ–¹
+#  ãƒ»å¤‰æ›ã—ãŸã„ãƒ•ã‚¡ã‚¤ãƒ«ã¨åŒã˜ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«ç½®ã„ã¦å®Ÿè¡Œã—ã¾ã™ã€‚
+#  ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«ã¨å…ˆé ­æ–‡å­—ã‚’æŒ‡å®šã—ã€å¤‰æ›ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ãã ã•ã„ã€‚
 #
-#  E‘ÎÛƒtƒ@ƒCƒ‹‚Æ‚»‚Ìƒtƒ@ƒCƒ‹‚ª’u‚©‚ê‚Ä‚¢‚éƒfƒBƒŒƒNƒgƒŠ‚Ìƒp[ƒ~ƒbƒVƒ‡ƒ“‚ğ
-#    ‘‚«‚İ‰Â”\‚Èó‘Ô‚É‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B
-#  E‘ÎÛƒtƒ@ƒCƒ‹–¼‚Éu.bakv‚ğ•t‰Á‚µ‚½–¼‘O‚ÅƒoƒbƒNƒAƒbƒvƒtƒ@ƒCƒ‹‚ğì¬‚µ‚Ü‚·B
-#  EÀs‚É‚ÍTime::Localƒ‚ƒWƒ…[ƒ‹‚ª•K—v‚Å‚·B‚½‚Ô‚ñ•W€‚Å“ü‚Á‚Ä‚é‚Æv‚¢‚Ü‚·‚ª
+#  ãƒ»å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã¨ãã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒç½®ã‹ã‚Œã¦ã„ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ‘ãƒ¼ãƒŸãƒƒã‚·ãƒ§ãƒ³ã‚’
+#    æ›¸ãè¾¼ã¿å¯èƒ½ãªçŠ¶æ…‹ã«ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
+#  ãƒ»å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«åã«ã€Œ.bakã€ã‚’ä»˜åŠ ã—ãŸåå‰ã§ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã—ã¾ã™ã€‚
+#  ãƒ»å®Ÿè¡Œã«ã¯Time::Localãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ãŒå¿…è¦ã§ã™ã€‚ãŸã¶ã‚“æ¨™æº–ã§å…¥ã£ã¦ã‚‹ã¨æ€ã„ã¾ã™ãŒ
 #
-#  •ÏŠ·‚Í‚²©g‚ÌÓ”C‚É‚¨‚¢‚Äs‚È‚Á‚Ä‚­‚¾‚³‚¢
+#  å¤‰æ›ã¯ã”è‡ªèº«ã®è²¬ä»»ã«ãŠã„ã¦è¡Œãªã£ã¦ãã ã•ã„
 #
 use strict;
 my ($scriptname, $dir, $logtype);
 
-# ‚±‚ÌƒXƒNƒŠƒvƒg‚ÌURL
+# ã“ã®ã‚¹ã‚¯ãƒªãƒ—ãƒˆã®URL
 $scriptname = $ENV{SCRIPT_NAME};
 
-# ƒƒOƒtƒ@ƒCƒ‹‚ª‚ ‚éƒfƒBƒŒƒNƒgƒŠ
+# ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
 $dir = '.';
 
-# •ÏŠ·‘ÎÛ‚ÌƒƒOŒ`®
-#  0 : STRENGE UPLOADER 2002”N11Œ17“ú”ÅˆÈ‘O‚ÌƒƒOŒ`®
-#  1 : ‚¸‚é‚Ú‚ñ‚ ‚Õ‚ë‚¾
+# å¤‰æ›å¯¾è±¡ã®ãƒ­ã‚°å½¢å¼
+#  0 : STRENGE UPLOADER 2002å¹´11æœˆ17æ—¥ç‰ˆä»¥å‰ã®ãƒ­ã‚°å½¢å¼
+#  1 : ãšã‚‹ã¼ã‚“ã‚ã·ã‚ã 
 $logtype = 1;
 
-# ƒ^ƒCƒ€ƒ][ƒ“
+# ã‚¿ã‚¤ãƒ ã‚¾ãƒ¼ãƒ³
 $ENV{TZ} = 'JST-9';
 
 
@@ -64,13 +64,13 @@ sub getformdata {
 }
 
 
-# ‚¸‚é‚Ú‚ñ‚ ‚Õ‚ë‚¾ƒf[ƒ^
+# ãšã‚‹ã¼ã‚“ã‚ã·ã‚ã ãƒ‡ãƒ¼ã‚¿
 # id  suffix  comment  host  ua  date  size  mimetype  passwd  md5  dcrc  \n
-# Eid ‚ÍlŒ…‚Ì”š
-# Edate‚Í2002”N11/26(‰Î)07:34‚Ì‚æ‚¤‚ÈŒ`®
-# Eíœ‹Ö~‚Ì‚Æ‚«‚Ípasswd‚É*
-# Esize‚ÍƒLƒƒoƒCƒg’PˆÊ
-# Eƒf[ƒ^‚Íƒ^ƒu‹æØ‚è
+# ãƒ»id ã¯å››æ¡ã®æ•°å­—
+# ãƒ»dateã¯2002å¹´11/26(ç«)07:34ã®ã‚ˆã†ãªå½¢å¼
+# ãƒ»å‰Šé™¤ç¦æ­¢ã®ã¨ãã¯passwdã«*
+# ãƒ»sizeã¯ã‚­ãƒ­ãƒã‚¤ãƒˆå˜ä½
+# ãƒ»ãƒ‡ãƒ¼ã‚¿ã¯ã‚¿ãƒ–åŒºåˆ‡ã‚Š
 sub conv_from_zurubon {
 	require Time::Local;
 	
@@ -85,12 +85,12 @@ sub conv_from_zurubon {
 	my ($time, $filename);
 	
 	$filename = "$prefix$id.$suffix";
-	$id += 0;	#”š‚Ì“ª‚Ì0‚ğæ‚é
+	$id += 0;	#æ•°å­—ã®é ­ã®0ã‚’å–ã‚‹
 	$suffix =~ /^\w+$/ or return undef;
 	
 	$passwd = '' if ($passwd eq '*');
 	
-	$date =~ /^(\d+)”N(\d+)\/(\d+)\(\S+?\)(\d+)\:(\d+)$/ or return undef;
+	$date =~ /^(\d+)å¹´(\d+)\/(\d+)\(\S+?\)(\d+)\:(\d+)$/ or return undef;
 	$time = Time::Local::timelocal(0, $5, $4, $3, $2-1, $1-1900);
 	$size =~ /^\d+$/ or return undef;
 	$size *= 1024;
@@ -100,9 +100,9 @@ sub conv_from_zurubon {
 	$rl_fields;
 }
 
-# ‹Œ: id  suffix  name  comment  time  size  passwd  host  ua  mimetype  \n
-# V: id  suffix  filename  dispname  comment  time  size  passwd  host  ua  mimetype  \n
-# iƒf[ƒ^‚Íƒ^ƒu‹æØ‚èj
+# æ—§: id  suffix  name  comment  time  size  passwd  host  ua  mimetype  \n
+# æ–°: id  suffix  filename  dispname  comment  time  size  passwd  host  ua  mimetype  \n
+# ï¼ˆãƒ‡ãƒ¼ã‚¿ã¯ã‚¿ãƒ–åŒºåˆ‡ã‚Šï¼‰
 sub conv_from_old_version {
 	my $rl_fields = @_ > 1 ? shift : [];
 	my ($line, $prefix) = @_;
@@ -121,11 +121,11 @@ sub conv_from_old_version {
 sub logconv {
 	my ($logfile, $prefix, $convertfunc) = @_;
 	
-#	print STDERR "$logfile ‚ÌƒƒOŒ`®‚ğƒRƒ“ƒo[ƒg‚µ‚Ü‚·B\n";
+#	print STDERR "$logfile ã®ãƒ­ã‚°å½¢å¼ã‚’ã‚³ãƒ³ãƒãƒ¼ãƒˆã—ã¾ã™ã€‚\n";
 	
 	my @logdata = ();
 	
-	open (LOG, "$dir/$logfile") or &error("ƒƒOƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ‚É¸”s‚µ‚Ü‚µ‚½B($!)\n");
+	open (LOG, "$dir/$logfile") or &error("ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ã«å¤±æ•—ã—ã¾ã—ãŸã€‚($!)\n");
 	eval{ flock (LOG, 1) };
 	
 	while (<LOG>) {
@@ -133,26 +133,26 @@ sub logconv {
 		my @fields;
 		
 		&$convertfunc(\@fields, $_, $prefix)
-			or &error("ƒƒOŒ`®‚ªˆá‚¤‚æ‚¤‚Å‚·BƒRƒ“ƒo[ƒg‚ğ’†~‚µ‚Ü‚µ‚½B\n");
+			or &error("ãƒ­ã‚°å½¢å¼ãŒé•ã†ã‚ˆã†ã§ã™ã€‚ã‚³ãƒ³ãƒãƒ¼ãƒˆã‚’ä¸­æ­¢ã—ã¾ã—ãŸã€‚\n");
 		
 		push (@logdata, join("\t", @fields) . "\n");
 	}
 	eval{ flock (LOG, 8) };
 	close (LOG);
 	
-	rename ($logfile, "$logfile.bak") or &error("ƒoƒbƒNƒAƒbƒvƒtƒ@ƒCƒ‹‚Ìì¬‚É¸”s‚µ‚Ü‚µ‚½B($!)\n");
+	rename ($logfile, "$logfile.bak") or &error("ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã®ä½œæˆã«å¤±æ•—ã—ã¾ã—ãŸã€‚($!)\n");
 	
-#	print STDERR "$logfile.bak ‚ÉƒoƒbƒNƒAƒbƒv‚ğæ‚è‚Ü‚µ‚½B\n";
+#	print STDERR "$logfile.bak ã«ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚’å–ã‚Šã¾ã—ãŸã€‚\n";
 	
-	open (LOG, "> $logfile") or &error("ƒƒOƒtƒ@ƒCƒ‹‚Ì‘‚«‚İ‚É¸”s‚µ‚Ü‚µ‚½B($!)\n");
+	open (LOG, "> $logfile") or &error("ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ã®æ›¸ãè¾¼ã¿ã«å¤±æ•—ã—ã¾ã—ãŸã€‚($!)\n");
 	eval{ flock (LOG, 2) };
 	print LOG @logdata;
 	eval{ flock (LOG, 8) };
 	close (LOG);
 	
-#	print STDERR "ƒRƒ“ƒo[ƒgI—¹\n";
+#	print STDERR "ã‚³ãƒ³ãƒãƒ¼ãƒˆçµ‚äº†\n";
 	
-	&print_msg('', "ƒRƒ“ƒo[ƒg‚Í–³–I‚í‚è‚Ü‚µ‚½B\n");
+	&print_msg('', "ã‚³ãƒ³ãƒãƒ¼ãƒˆã¯ç„¡äº‹çµ‚ã‚ã‚Šã¾ã—ãŸã€‚\n");
 }
 
 sub print_html_header {
@@ -177,13 +177,13 @@ sub html {
 	&print_html_header();
 	
 	print <<_EOF;
-<h2>ƒƒOƒRƒ“ƒo[ƒ^</h2>
+<h2>ãƒ­ã‚°ã‚³ãƒ³ãƒãƒ¼ã‚¿</h2>
 
 
 <form method="POST" action="$scriptname">
 <input type="hidden" name="act" value="confirm">
 
-ƒtƒ@ƒCƒ‹‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢B
+ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠã—ã¦ãã ã•ã„ã€‚
 <hr>
 <table border="0" width="60%">
 <tr>
@@ -218,8 +218,8 @@ _EOF
 </table>
 <hr>
 
-æ“ª•¶š (\$prefix) <input type="text" name="prefix" size="8" value="up">@
-<input type="submit" value="•ÏŠ·">
+å…ˆé ­æ–‡å­— (\$prefix) <input type="text" name="prefix" size="8" value="up">ã€€
+<input type="submit" value="å¤‰æ›">
 
 </form>
 
@@ -235,30 +235,30 @@ sub confirm {
 	my $msg;
 	
 	if (-e "$dir/$backup") {
-		$msg = qq|$backup‚ğ<font color="red">ã‘‚«‚µ‚Ä</font>ƒoƒbƒNƒAƒbƒvƒtƒ@ƒCƒ‹‚ğì¬‚µ‚Ü‚·|;
+		$msg = qq|$backupã‚’<font color="red">ä¸Šæ›¸ãã—ã¦</font>ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã—ã¾ã™|;
 	} else {
-		$msg = qq|$backup‚ÉƒoƒbƒNƒAƒbƒvƒtƒ@ƒCƒ‹‚ğì¬‚µ‚Ü‚·|;
+		$msg = qq|$backupã«ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã—ã¾ã™|;
 	}
 	
 	&print_html_header();
 	
 	my $prefix = $formdata->{prefix};
-	$prefix = '<i>(–³‚µ)</i>' if ($prefix eq '');
+	$prefix = '<i>(ç„¡ã—)</i>' if ($prefix eq '');
 	
 	print <<_EOF;
-<h2>ƒƒOƒRƒ“ƒo[ƒ^</h2>
+<h2>ãƒ­ã‚°ã‚³ãƒ³ãƒãƒ¼ã‚¿</h2>
 <table border="0">
-<tr><td nowrap>ƒtƒ@ƒCƒ‹–¼</td><td nowrap>F $formdata->{fn}</td></tr>
-<tr><td nowrap>æ“ª•¶š</td><td nowrap>F $prefix</td></tr>
+<tr><td nowrap>ãƒ•ã‚¡ã‚¤ãƒ«å</td><td nowrap>ï¼š $formdata->{fn}</td></tr>
+<tr><td nowrap>å…ˆé ­æ–‡å­—</td><td nowrap>ï¼š $prefix</td></tr>
 <tr><td colspan="2">$msg</td></tr>
-<tr><td colspan="2">‚æ‚ë‚µ‚¢‚Å‚·‚©H</td></tr>
+<tr><td colspan="2">ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ</td></tr>
 </table>
 
 <form method="POST" action="$scriptname">
 <input type="hidden" name="act"    value="convert">
 <input type="hidden" name="fn"     value="$formdata->{fn}">
 <input type="hidden" name="prefix" value="$formdata->{prefix}">
-<input type="submit" value="•ÏŠ·">
+<input type="submit" value="å¤‰æ›">
 
 </form>
 </body>
@@ -267,22 +267,22 @@ _EOF
 	
 }
 
-# ƒf[ƒ^ƒ`ƒFƒbƒN
+# ãƒ‡ãƒ¼ã‚¿ãƒã‚§ãƒƒã‚¯
 sub datacheck {
 	my $formdata = shift;
 	($formdata->{fn}) = $formdata->{fn} =~ /^([^:\\\/|<>+&]+)$/;
 	
-#	&error("æ“ª•¶š‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB\n") if ($formdata->{prefix} eq '');
-	&error("ƒtƒ@ƒCƒ‹‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB\n") if ($formdata->{fn} eq '');
-	&error("ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚Ü‚¹‚ñB\n") unless (-f "$dir/$formdata->{fn}");
-	&error("ƒtƒ@ƒCƒ‹‚É“Ç‚İ‚İ‘®«‚ª‚ ‚è‚Ü‚¹‚ñB\n") unless (-r _);
-	&error("ƒtƒ@ƒCƒ‹‚É‘‚«‚İ‘®«‚ª‚ ‚è‚Ü‚¹‚ñB\n") unless (-w _);
-	&error("ƒfƒBƒŒƒNƒgƒŠ‚É‘‚«‚İ‘®«‚ª–³‚¢‚½‚ßƒoƒbƒNƒAƒbƒvƒtƒ@ƒCƒ‹‚ªì¬‚Å‚«‚Ü‚¹‚ñB\n")
+#	&error("å…ˆé ­æ–‡å­—ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚\n") if ($formdata->{prefix} eq '');
+	&error("ãƒ•ã‚¡ã‚¤ãƒ«ãŒé¸æŠã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚\n") if ($formdata->{fn} eq '');
+	&error("ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ã¾ã›ã‚“ã€‚\n") unless (-f "$dir/$formdata->{fn}");
+	&error("ãƒ•ã‚¡ã‚¤ãƒ«ã«èª­ã¿è¾¼ã¿å±æ€§ãŒã‚ã‚Šã¾ã›ã‚“ã€‚\n") unless (-r _);
+	&error("ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã¿å±æ€§ãŒã‚ã‚Šã¾ã›ã‚“ã€‚\n") unless (-w _);
+	&error("ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«æ›¸ãè¾¼ã¿å±æ€§ãŒç„¡ã„ãŸã‚ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ãŒä½œæˆã§ãã¾ã›ã‚“ã€‚\n")
 		unless (-w $dir);
 }
 
 
-# ƒGƒ‰[ˆ—
+# ã‚¨ãƒ©ãƒ¼å‡¦ç†
 sub error { &print_msg('ERROR', @_); }
 
 sub print_msg {
@@ -294,7 +294,7 @@ sub print_msg {
 	print <<_EOF;
 <p><big><strong>$errmsg</strong></big></p>
 <hr>
-<a href="$scriptname">–ß‚é</a>
+<a href="$scriptname">æˆ»ã‚‹</a>
 </body>
 </html>
 _EOF
