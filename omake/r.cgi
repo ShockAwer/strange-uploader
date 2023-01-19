@@ -1,9 +1,9 @@
-#! /usr/local/bin/perl
+#! /usr//bin/perl
 #
-# ‚è‚¾‚¢‚ê‚­‚½[
+# ã‚Šã ã„ã‚ŒããŸãƒ¼
 #
-# g—p•û–@
-#   r.cgi?“]‘—æURL ‚ÅŒÄ‚Ño‚·
+# ä½¿ç”¨æ–¹æ³•
+#   r.cgi?è»¢é€å…ˆURL ã§å‘¼ã³å‡ºã™
 #
 my $url = $ENV{QUERY_STRING} || "http://$ENV{SERVER_NAME}/";
 $url =~ s/&/&amp;/g;
@@ -19,12 +19,12 @@ Content-Language: ja
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=Shift_JIS">
 <meta http-equiv="Refresh" content="0;URL=$url">
-<title>‚è‚¾‚¢‚ê‚­‚½[</title>
+<title>ã‚Šã ã„ã‚ŒããŸãƒ¼</title>
 </head>
 
 <body bgcolor="#004040" text="#ffffff" link="#eeffee" vlink="#dddddd" alink="#ff0000">
 <p>
- $url ‚É“]‘—’†ƒÃƒ¬R(L[M)ƒm
+ $url ã«è»¢é€ä¸­Îµï¼Îãƒ½(Â´ãƒ¼ï½€)ãƒ
 </p>
 </body>
 </html>
