@@ -30,7 +30,7 @@ $STORE_URL = "http://$ENV{SERVER_NAME}/(´ー｀)/stored/";
 
 # タイトルの下に表示するお知らせ
 $INFORMATION = <<'_EOF';
-<pre>　　　　　 旦~
+<pre>　　　　　 Upload something ~
 ヽ(´ー｀)ノ</pre>
 _EOF
 
