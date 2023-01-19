@@ -1,110 +1,109 @@
-
   STRANGE UPLOADER
-                                   2002年12月23日版
+                                   December 23, 2002 version
 
 
 
-＊2002年11月19日版からログ形式が変わりました。
-  2002年11月17日版以前のものから移行する際はログ形式を変換する必要があります。
+The log format has changed since the November 19, 2002 edition.
+  You need to convert the log format when migrating from the November 17, 2002 version or earlier.
 
 
-当スクリプトの作成にあたり、ずるぼんあぷろだをはじめとして多くのスクリプトを
-参考にさせて頂きました。公開して下さった全ての方々に感謝します(^Д^)
+In creating this script, we have referred to many scripts including Zurbonaproda.
+I would like to thank all the people who made them available. I would like to thank all the people who made them available to the public.
 
 
-概要
-  ・簡易ディスクスペースのようなものを提供するCGIスクリプトです。
+Outline
+  This is a CGI script that provides a kind of simple disk space.
 
-バグ
-  ・アップロードファイル名に「ソ」「十」「表」などの第二バイト目が0x5C(\)の文字（シフトJISで）
-    が含まれている時、その文字以前が途切れたファイル名が表示されます。
-    （$LOCAL_FILENAME_SW が 1 または 2 の時）
+Bugs
+  When an uploaded file name contains characters whose second byte is 0x5C (\) (in Shift-JIS) such as "so", "ten", "table", etc.
+    character (in Shift JIS) such as "so", "ten", "table", etc., the file name is displayed with the character before the character broken.
+    (When $LOCAL_FILENAME_SW is 1 or 2)
 
-履歴
-  2002.12.23
-    描画アニメに対応
-    リスト中のお絵描きデータを区別がつけやすいように斜体にした
-    ページのリンクを下にも付けた
-    他いろいろ修正
+History
+  December 23, 2002
+    Support for drawing animation
+    Italicized the drawing data in the list to make it easier to distinguish.
+    Added page links to the bottom of the page
+    Various other modifications
 
-  2002.12.21
-    設定項目を別ファイルにした
-    ログ検索のバグを修正し、検索条件(AND/OR)を選択ができるように変更
-    お絵描きアプレットのデザインに関する設定項目を設けた
-    gw.cgiにもアクセス制限を付けた
+  December 21, 2002
+    added a separate file for settings
+    Fixed a bug in the log search, and changed the search condition (AND/OR) to be selectable.
+    added a configuration item for drawing applet design
+    added access restrictions to gw.cgi
 
-  2002.12.14
-    スタイルシート選択スクリプトのバグを修正
+  2002.12.14.
+    fixed a bug in style sheet selection script
 
-  2002.12.12
-    スタイルシート選択スクリプトをOpera7に対応させた
+  2002.12.12.
+    Supported Opera7 in the style sheet selection script
 
   2002.11.29
-    アップロードファイルの最小サイズが指定できるようになった
-    ずるぼんあぷろだのログから変換するコンバータを作った
+    Minimum size of uploaded files can now be specified
+    Created a converter to convert from Zurbonaproda logs
 
-  2002.11.25
-    自動リンクのおかしい部分を直した
-    text/plainでもバナーを入れるinfoseekなどのサーバで、お絵描き時のエラー処理ができない対策をした
-    インデックスページ自動作成に関する結構重大なバグを修正
+  November 25, 2002
+    fixed a strange part of automatic link
+    fixed the problem of drawing error processing on infoseek and other servers that include banners even if they are text/plain
+    Fixed a serious bug about automatic index page creation
 
-  2002.11.21
-    STRANGE UPLOADERに改名
-    バグ修正
+  November 21, 2002
+    Changed the name to STRANGE UPLOADER
+    Fixed a bug.
 
-  2002.11.19
-    ローカルのファイル名のままアップロードできるようにした（ファイル名が半角英数字と - _ . のとき）
-    それに伴いログ形式を変更した
+  November 19, 2002
+    modified the file name can be uploaded as local file name (when the file name is alphanumeric characters and - _ . )
+    changed log format accordingly
 
-  2002.11.17
-    インデックスページを作成する機能をつけた
-    汚染チェック（Perlの -T オプション）が働いている時でも正常に動作するようにした
+  November 17, 2002
+    added a function to create an index page
+    modified to work correctly when taint check (-T option of Perl) is working
 
-  2002.11.15
-    スタイルシート選択スクリプトのバグ修正
+  Nov. 15, 2002
+    Fixed a bug in the style sheet selection script
 
-  2002.11.11
-    アクセス制限に関するバグ修正
+  November 11, 2002
+    Fixed a bug on access restriction
 
   2002.11.07
-    送信途中で中断されたときに半端なファイルが記録されるのを直した
-    スタイルシート選択スクリプトを導入した
+    Fixed a bug that a half-finished file is recorded when interrupted during transmission
+    Introduced stylesheet selection script
 
   2002.11.03
-    お絵描き機能を付けた
+    added drawing function
 
   2001.11.01
-    gw.cgiを改良
-    ちょこちょこバグ修正
+    modified gw.cgi
+    fixed a few bugs
 
   2002.10.27
-    公開
+    Open to the public
 
 
-利用規定
+Terms of Use
 
-  このスクリプトはフリーソフトです(^Д^)
-  個人・法人、商用・非商用に限らず自由に使用することができます(^Д^)
-  ただし、著作権は放棄していません(^Д^)
+  This script is free software.
+  You can use it freely for personal or corporate use, commercial or non-commercial use.
+  However, the copyright is not abandoned (^ﾐ膿)
 
-  改造・再配布は自由に行なって結構です(^Д^)
+  You are free to modify and redistribute this script.
 
-  このスクリプトの使用に依る、いかなる損害に対しても作者は責任は負いません(^Д^)
-  各人の責任において使用してください(^Д^)
+  The author is not responsible for any damage caused by the use of this script.
+  Use at your own risk.
 
-  アーカイブに含まれている以下のプログラムに関する諸権利はそれぞれの作者に属します(^Д^)
-  使用条件などについてはそちらに従って下さい(^Д^)
+  All rights to the following programs included in this archive belong to their respective authors.
+  Please follow the terms and conditions of use.
 
     PaintBBS
-    しぃちゃんさん  http://www.gt.sakura.ne.jp/~ocosama/
+    Shi-chan http://www.gt.sakura.ne.jp/~ocosama/
 
     DynamicPalette (palette.js)
-    のらネコさん    http://wondercatstudio.com/
+    Noraneko-san http://wondercatstudio.com/
 
     jcode.pl
-    歌代和正さん    http://srekcah.org/jcode/
+    Kazumasa Utashiro http://srekcah.org/jcode/
 
 
-作者について
-  ちねん <chinen@yasashiku.site.ne.jp>
+About the author
+  Chinen <chinen@yasashiku.site.ne.jp>
   http://yasashiku.site.ne.jp/uploader/
