@@ -1,28 +1,28 @@
-#! /usr/local/bin/perl
+#! /usr/bin/perl
 #
 # gw.cgi
-#   ���炩�̗��R�Œ��ڃt�@�C�����_�E�����[�h���������Ȃ��ꍇ�Ɏg�p����
+#   何らかの理由で直接ファイルをダウンロードさせたくない場合に使用する
 #
-# �g�p���@
-#   upload.cgi�̐ݒ���ȉ��̂悤�ɕύX���܂�
+# 使用方法
+#   upload.cgiの設定を以下のように変更します
 #   $STORE_URL = "http://hoehoe.com/uploader/gw.cgi/";
 #
-#   $ENV{PATH_INFO}���g���Ȃ��Ƃ�
+#   $ENV{PATH_INFO}が使えないとき
 #   $STORE_URL = "http://hoehoe.com/uploader?gw.cgi/";
 #
 #
 use strict;
 my ($STORE_DIR, $ACCESS_CONTROL, @EXCEPT_REFERER);
 
-### �����ݒ� ###
+### 初期設定 ###
 
-# �A�b�v���[�h�f�[�^�̊i�[��f�B���N�g��
+# アップロードデータの格納先ディレクトリ
 $STORE_DIR = './stored';
 
-# �A�N�Z�X�����p�f�[�^�t�@�C��
+# アクセス制限用データファイル
 $ACCESS_CONTROL = './data/deny.file';
 
-# �w�肵���T�C�g����Q�Ƃ��֎~����
+# 指定したサイトから参照を禁止する
 @EXCEPT_REFERER = (
 #	'http://ime.nu/',
 );
@@ -31,7 +31,7 @@ $ACCESS_CONTROL = './data/deny.file';
 $STORE_DIR =~ s|/$||;
 
 
-# �֎~�h���C�������ׂ� (return 1:�֎~�h���C��, 0:���̑�)
+# 禁止ドメインか調べる (return 1:禁止ドメイン, 0:その他)
 sub checkdomain {
 	my ($domain, $host, $hostip, $ret);
 	my $access_control_file = shift;
@@ -49,7 +49,7 @@ sub checkdomain {
 			if (defined($mask)) {
 				$mask = ~((1<<(32-$mask))-1);
 			} else {
-				# ���ʃr�b�g��0�Ŗ��߂��Ă��邩���ׂ�
+				# 下位ビットが0で埋められているか調べる
 				$mask = ~0;
 				foreach (0xFFFFFFFF, 0xFFFFFF, 0xFFFF, 0xFF) {
 					unless ($domip & $_) {
@@ -58,12 +58,12 @@ sub checkdomain {
 					}
 				}
 			}
-			if (($hostip & $mask) == ($domip & $mask)) {# �w��IP
+			if (($hostip & $mask) == ($domip & $mask)) {# 指定IP
 				close (AXSCTRL); return undef;
 			}
 		} else {
 			$host ||= &getremotehost();
-			if ($host =~ m#(^|\.)\Q${_}\E$#) {			# �w��h���C�����ŏI���z�X�g
+			if ($host =~ m#(^|\.)\Q${_}\E$#) {			# 指定ドメイン名で終わるホスト
 				close (AXSCTRL); return undef;
 			}
 		}
@@ -77,7 +77,7 @@ sub inetaddr2int {
 }
 
 
-# �Q�Ɛ�𒲂ׂ�
+# 参照先を調べる
 sub checkreferer {
 	my $rl_except = shift;
 	
@@ -91,7 +91,7 @@ sub checkreferer {
 }
 
 
-# �g���q����MIME�^�C�v���擾
+# 拡張子からMIMEタイプを取得
 sub getmimetype_bysuffix {
 	my $name = shift;
 	my $suffix = $name =~ /\.([^\.]+)$/ ? lc ($1) : lc ($name);
@@ -110,7 +110,7 @@ sub getmimetype_bysuffix {
 }
 
 
-# �G���[�y�[�W��\��
+# エラーページを表示
 sub error_page {
 	my $status = shift || 200;
 	
