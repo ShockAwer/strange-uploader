@@ -1,14 +1,14 @@
-#! /usr/local/bin/perl
+#! /usr/bin/perl
 #
-#@STRANGE UPLOADER     2002”N12Œ23“ú”Å
+#ã€€STRANGE UPLOADER     
 #
-$::COPYRIGHT = 'STRANGE UPLOADER (2002-12-23)';
-#
-#
-#  ‰Šúİ’è‚Íupload.init‚É‚ ‚è‚Ü‚·B
+$::COPYRIGHT = 'STRANGE UPLOADER ENGLISH (2022-12-23)';
 #
 #
-# yƒtƒ@ƒCƒ‹\¬—ázƒp[ƒ~ƒbƒVƒ‡ƒ“‚ÍŠ—LÒŒ ŒÀ‚ÅCGI‚ª“®‚­ê‡
+#  åˆæœŸè¨­å®šã¯upload.initã«ã‚ã‚Šã¾ã™ã€‚
+#
+#
+# ã€ãƒ•ã‚¡ã‚¤ãƒ«æ§‹æˆä¾‹ã€‘ãƒ‘ãƒ¼ãƒŸãƒƒã‚·ãƒ§ãƒ³ã¯æ‰€æœ‰è€…æ¨©é™ã§CGIãŒå‹•ãå ´åˆ
 #
 #  [cgi-bin] (701) /
 #      |
@@ -16,34 +16,34 @@ $::COPYRIGHT = 'STRANGE UPLOADER (2002-12-23)';
 #      |-- upload.init        (600)
 #      |-- style.css          (644)
 #      |-- styleselector.js   (644)
-#      |-- PaintBBS.jar       (644) (‚¨ŠG•`‚«‹@”\g—p‚Ì‚İ)
-#      |-- palette.js         (644) (‚¨ŠG•`‚«‹@”\g—p‚Ì‚İ)
-#      |-- shiihelp.html      (644) (‚¨ŠG•`‚«‹@”\g—p‚Ì‚İ)
+#      |-- PaintBBS.jar       (644) (ãŠçµµæãæ©Ÿèƒ½ä½¿ç”¨æ™‚ã®ã¿)
+#      |-- palette.js         (644) (ãŠçµµæãæ©Ÿèƒ½ä½¿ç”¨æ™‚ã®ã¿)
+#      |-- shiihelp.html      (644) (ãŠçµµæãæ©Ÿèƒ½ä½¿ç”¨æ™‚ã®ã¿)
 #      |
 #      +-- [lib] (700) /
 #      |     |
 #      |     |-- multipart.pl (600)
-#      |     |-- getpic.pl    (600) (‚¨ŠG•`‚«‹@”\g—p‚Ì‚İ)
-#      |     |-- imagesize.pl (600) (‚¨ŠG•`‚«‹@”\g—p‚Ì‚İ)
+#      |     |-- getpic.pl    (600) (ãŠçµµæãæ©Ÿèƒ½ä½¿ç”¨æ™‚ã®ã¿)
+#      |     |-- imagesize.pl (600) (ãŠçµµæãæ©Ÿèƒ½ä½¿ç”¨æ™‚ã®ã¿)
 #      |     |-- jcode.pl     (600)
 #      |
 #      +-- [data] (700) /
 #      |     |
 #      |     |-- upload.log   (600)
 #      |     |-- admin.passwd (600)
-#      |     |-- count.file   (600) (•K—v‚É‰‚¶‚Ä)
-#      |     |-- renzoku.file (600) (•K—v‚É‰‚¶‚Ä)
-#      |     |-- deny.file    (600) (•K—v‚É‰‚¶‚Ä)
+#      |     |-- count.file   (600) (å¿…è¦ã«å¿œã˜ã¦)
+#      |     |-- renzoku.file (600) (å¿…è¦ã«å¿œã˜ã¦)
+#      |     |-- deny.file    (600) (å¿…è¦ã«å¿œã˜ã¦)
 #      |
 #      +-- [stored] (701) /
 #
-#   EŒf¦”Â‰‰ñ‹N“®‚ÍŠÇ—ÒƒpƒXƒ[ƒh“o˜^‰æ–Ê‚É‚È‚è‚Ü‚·B
-#   EƒT[ƒo‚ğˆÚ“]‚µ‚½‚É‚Íuadmin.passwdv‚ğˆê’[ƒNƒŠƒA‚µ‚Ä‚­‚¾‚³‚¢B
+#   ãƒ»æ²ç¤ºæ¿åˆå›èµ·å‹•æ™‚ã¯ç®¡ç†è€…ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ç™»éŒ²ç”»é¢ã«ãªã‚Šã¾ã™ã€‚
+#   ãƒ»ã‚µãƒ¼ãƒã‚’ç§»è»¢ã—ãŸæ™‚ã«ã¯ã€Œadmin.passwdã€ã‚’ä¸€ç«¯ã‚¯ãƒªã‚¢ã—ã¦ãã ã•ã„ã€‚
 #
 #
 ##################################################
 
-# jcode.pl‚È‚Ç‚Ìƒ‰ƒCƒuƒ‰ƒŠ‚ğ•ÊƒfƒBƒŒƒNƒgƒŠ‚É’u‚«‚½‚¢‚Í‚±‚±‚Åw’è
+# jcode.plãªã©ã®ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚’åˆ¥ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«ç½®ããŸã„æ™‚ã¯ã“ã“ã§æŒ‡å®š
 use lib './lib';
 
 #use strict;
@@ -56,12 +56,12 @@ use lib './lib';
 #	$TMPDIR, %MIMETYPE, $MAX_FILENAME_SIZE, $MAX_PAGE_INDEX, $COOKIE_NAME, $MOJIBAKE_TAISAKU, $TEXT_BANNER,
 #	%Form, %Cookie, @UploadFiles, @PictureFiles);
 
-# İ’è‚ğ“Ç‚İ‚Ş
+# è¨­å®šã‚’èª­ã¿è¾¼ã‚€
 do './upload.init';
-&cgidie('İ’è€–Ú‚Ì‹Lq‚ÉŒë‚è‚ª‚ ‚è‚Ü‚·B', $@) if ($@);
+&cgidie('There is an error in the description of the configuration itemã€‚', $@) if ($@);
 
 $STORE_DIR =~ s|/$||;
-$STORE_URL .= '/' unless ($STORE_URL =~ m|[\?\/]$|);	#gw.cgi?filename ‚ªg‚¦‚é‚æ‚¤‚É
+$STORE_URL .= '/' unless ($STORE_URL =~ m|[\?\/]$|);	#gw.cgi?filename ãŒä½¿ãˆã‚‹ã‚ˆã†ã«
 $BASE_URL  =~ s|/$||;
 $TMPDIR    =~ s|/$||;
 
@@ -69,7 +69,7 @@ $SIG{__DIE__} = \&cgidie;
 
 
 ##################################################
-# HTMLã•”‰º•”
+# HTMLä¸Šéƒ¨ä¸‹éƒ¨
 
 my $HeaderPrinted = 0;
 sub print_header {
@@ -90,15 +90,15 @@ sub print_header {
 			my $rel = $i == 0 ? 'stylesheet' : 'alternate stylesheet';
 			$stylesheet .= qq|<link rel="$rel" type="text/css" href="$BASE_URL/$STYLESHEET[$i]" title="$STYLESHEET[$i+1]">\n|;
 		}
-		$stylesheet .= qq|<script type="text/javascript" src="$BASE_URL/styleselector.js" charset="Shift_JIS"></script>|;
-		$cssselector = qq|<script type="text/javascript"><!--\n  writeCSSSelectForm("ƒfƒUƒCƒ“•ÏXF");\n// --></script>|;
+		$stylesheet .= qq|<script type="text/javascript" src="$BASE_URL/styleselector.js" charset="UTF-8"></script>|;
+		$cssselector = qq|<script type="text/javascript"><!--\n  writeCSSSelectForm("Design Changesï¼š");\n// --></script>|;
 	} else {
 		$stylesheet = qq|<link rel="stylesheet" type="text/css" href="$BASE_URL/$STYLESHEET[0]">|;
 	}
 	
 	if (!$is_indexpage) {
 		print <<_EOF;
-Content-Type: text/html; charset=Shift_JIS
+Content-Type: text/html; charset=UTF-8
 Content-Language: ja
 Cache-Control: no-store, must-revalidate
 Pragma: no-cache
@@ -109,7 +109,7 @@ _EOF
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ja">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Script-Type" content="text/javascript">
 $stylesheet
 <title>$title</title>
@@ -131,12 +131,12 @@ _EOF
 
 sub print_footer {
 	my $applet = $OEKAKI_SW ?
-	  qq|\n‚¨ŠG•`‚«ƒAƒvƒŒƒbƒg <a href="http://www.gt.sakura.ne.jp/~ocosama/">PaintBBS (‚µ‚¡‚¿‚á‚ñ)</a>| : '';
+	  qq|\nDrawing applet <a href="http://www.gt.sakura.ne.jp/~ocosama/">PaintBBS (I am sorry)</a>| : '';
 	print <<_EOF;
 <hr>
 <div align="right"><small>
 <strong><a href="http://yasashiku.site.ne.jp/uploader/">$::COPYRIGHT</a></strong>
-<!-- <small><a href="$CGIURL?help=disk">—Ê</a></small> --><br>
+<!-- <small><a href="$CGIURL?help=disk">Support</a></small> --><br>
 $applet
 </small></div>
 $BANNER
@@ -147,20 +147,20 @@ _EOF
 
 
 ##################################################
-# ƒŠƒXƒg•\¦
+# ãƒªã‚¹ãƒˆè¡¨ç¤º
 
 sub list {
 	
 	my $upload_limit = '';
-	$upload_limit .= &byte_calc($MIN_UPLOAD_SIZE) . '‚©‚ç ' if ($MIN_UPLOAD_SIZE);
-	$upload_limit .= $MAX_UPLOAD_SIZE ? &byte_calc($MAX_UPLOAD_SIZE) . '‚Ü‚Å' : '–³§ŒÀ';
+	$upload_limit .= &byte_calc($MIN_UPLOAD_SIZE) . 'ã‹ã‚‰ ' if ($MIN_UPLOAD_SIZE);
+	$upload_limit .= $MAX_UPLOAD_SIZE ? &byte_calc($MAX_UPLOAD_SIZE) . 'To' : 'Unlimited';
 	
 	print <<_EOF;
 <p>$INFORMATION</p>
 <form name="uploadform" method="POST" enctype="multipart/form-data" action="$CGIURL">
-<a href="$CGIURL?help=file">ƒtƒ@ƒCƒ‹</a><small><strong> i$upload_limitj</strong></small><br>
+<a href="$CGIURL?help=file">ãƒ•ã‚¡ã‚¤ãƒ«</a><small><strong> ï¼ˆ$upload_limitï¼‰</strong></small><br>
 <input type="file" size="30" name="uploadfile">
-<select name="suffix"><option value="" selected>“ÁêŠg’£q‘I‘ğ
+<select name="suffix"><option value="" selected>Special Extensions Selection
 _EOF
 	
 	for (sort keys(%MIMETYPE)) {
@@ -172,14 +172,14 @@ _EOF
 	
 	print <<_EOF;
 </select><br>
-ƒRƒƒ“ƒg<br>
+Comment<br>
 <input type="text" size="60" name="comment" value="">
 <input type="submit" name="act" value="Up/Reload" class="button"><input type="reset" value="Cancel" class="button"><br>
-<a href="$CGIURL?help=del">del pass</a>: <input type="password" size="10" name="delpass" maxlength="10" value="@{[&htmlencode($Cookie{delpass})]}">@
-<input type="checkbox" name="cookie_ok" value="on" $cookie_ok_checked><small>ƒpƒXƒ[ƒh‚ğƒNƒbƒL[‚É•Û‘¶</small>
+<a href="$CGIURL?help=del">del pass</a>: <input type="password" size="10" name="delpass" maxlength="10" value="@{[&htmlencode($Cookie{delpass})]}">ã€€
+<input type="checkbox" name="cookie_ok" value="on" $cookie_ok_checked><small>Save password in cookie</small>
 _EOF
 	if ($LOCAL_FILENAME_SW > 0) {
-		print qq|<input type="checkbox" name="hidename" value="on"><small>ƒtƒ@ƒCƒ‹–¼‚ğ‰B‚·</small>\n|;
+		print qq|<input type="checkbox" name="hidename" value="on"><small>Hide file name</small>\n|;
 	}
 	
 	print <<_EOF;
@@ -191,27 +191,27 @@ _EOF
 </form>
 _EOF
 	
-	# ‚¨ŠG•`‚«‹@”\
+	# ãŠçµµæãæ©Ÿèƒ½
 	if ($OEKAKI_SW) {
 		my $anime_sw = $OEKAKI_ANIMATION ?
-			qq|<input type="checkbox" name="anime" value="on" checked><small>ƒAƒjƒ‹L˜^</small>| : '';
+			qq|<input type="checkbox" name="anime" value="on" checked><small>animation record</small>| : '';
 		print <<_EOF;
 <form method="GET" action="$CGIURL">
 <input type="hidden" name="m" value="E">
-‰¡<select name="hsize">
+Side<select name="hsize">
 _EOF
 		for (my $i = 100; $i <= $OEKAKI_MAX_SIZE; $i+=50) {
 			my $selected = $i == $OEKAKI_DEF_SIZE ? 'selected' : '';
 			print qq|<option value="$i"$selected>$i\n|;
 		}
-		print qq|</select> ~\nc<select name="vsize">\n|;
+		print qq|</select> Ã—\nWarp<select name="vsize">\n|;
 		for (my $i = 100; $i <= $OEKAKI_MAX_SIZE; $i+=50) {
 			my $selected = $i == $OEKAKI_DEF_SIZE ? 'selected' : '';
 			print qq|<option value="$i"$selected>$i\n|;
 		}
 		print <<_EOF;
 </select> pixel
-<input type="submit" value="‚¨ŠG•`‚«‚·‚é" class="button">
+<input type="submit" value="Drawing" class="button">
 $anime_sw
 </form>
 
@@ -219,18 +219,18 @@ _EOF
 	}
 	
 	print "<small>";
-	if ($COUNTFILE ne ""){	# ƒJƒEƒ“ƒ^
-		print &counter(), "@\n";
+	if ($COUNTFILE ne ""){	# ã‚«ã‚¦ãƒ³ã‚¿
+		print &counter(), "ã€€\n";
 	}
-	print "D : ƒtƒ@ƒCƒ‹íœ@";
-	print "A : •`‰æƒAƒjƒÄ¶@" if ($OEKAKI_ANIMATION);
-#	print "Å‘å•Û‘¶”F$LOGSAVE";
+	print "D : Deletionã€€";
+	print "A : Drawing animation playbackã€€" if ($OEKAKI_ANIMATION);
+#	print "æœ€å¤§ä¿å­˜æ•°ï¼š$LOGSAVE";
 	print "</small>\n";
 	
 	print <<_EOF;
 <hr><small>
- | <a href="$CGIURL?m=I">‰æ‘œ‰{——</a>
- | <a href="$CGIURL?m=S">ƒtƒ@ƒCƒ‹ŒŸõ</a>
+ | <a href="$CGIURL?m=I">Image Browsing</a>
+ | <a href="$CGIURL?m=S">File Search</a>
 $LINK_BAR |
 </small>
 _EOF
@@ -284,13 +284,13 @@ _EOF
 	}
 	print "</table>\n";
 	
-	# ŒŸõƒ{ƒ^ƒ“
+	# æ¤œç´¢ãƒœã‚¿ãƒ³
 	print <<_EOF;
 <hr>
 $page_index
 <hr>
 <form method="POST" action="$CGIURL" style="margin: 0px">
-<a href="$CGIURL?help=search">ŒŸõ</a>: <input type="text" size="25" name="kwd" value="">
+<a href="$CGIURL?help=search">Search</a>: <input type="text" size="25" name="kwd" value="">
 <input type="submit" value="Search" class="button">
 <input type="hidden" name="m" value="S">
 <input type="hidden" name="k" value="$MOJIBAKE_TAISAKU">
@@ -301,7 +301,7 @@ _EOF
 
 
 ##################################################
-# ƒy[ƒW‚ÌƒŠƒ“ƒN‚ğ•\¦
+# ãƒšãƒ¼ã‚¸ã®ãƒªãƒ³ã‚¯ã‚’è¡¨ç¤º
 
 sub page_index {
 	
@@ -312,9 +312,9 @@ sub page_index {
 	my $lm   = int($Form{lm})   || $msgdisp;
 	
 	my $half = int (($MAX_PAGE_INDEX - 1) / 2);
-	$s = ($page > $half) ? $page - $half : 0;	# ŠJnƒy[ƒW
-	$n = int($total / $lm);						# ‘Sƒy[ƒW”
-	# ƒy[ƒW”‚ğ’²®
+	$s = ($page > $half) ? $page - $half : 0;	# é–‹å§‹ãƒšãƒ¼ã‚¸
+	$n = int($total / $lm);						# å…¨ãƒšãƒ¼ã‚¸æ•°
+	# ãƒšãƒ¼ã‚¸æ•°ã‚’èª¿æ•´
 	if ($s + $MAX_PAGE_INDEX - 1 < $n) {
 		$e = $s + $MAX_PAGE_INDEX - 1; $ee++;
 	} else {
@@ -324,10 +324,10 @@ sub page_index {
 		$s = $e - $MAX_PAGE_INDEX - 1; $ss++;
 	}
 	
-	$page_index  = "<small>ƒy[ƒWF";
+	$page_index  = "<small>Pagination ï¼š";
 	$page_index .= "<strong><a href=\"$CGIURL?page=0&amp;lm=$lm&amp;$urlquery\">&lt;&lt;&lt; </a></strong> \n"
 		if ($ss);
-	$page_index .= "<strong><a href=\"$CGIURL?page=" . ($page-1) . "&amp;lm=$lm&amp;$urlquery\">‘O‚Ö</a></strong> \n"
+	$page_index .= "<strong><a href=\"$CGIURL?page=" . ($page-1) . "&amp;lm=$lm&amp;$urlquery\">Previous</a></strong> \n"
 		if ($page - 1 >= 0);
 	for (my $i = $s; $i <= $e; $i++) {
 		my $pagenum = $i + 1;
@@ -342,7 +342,7 @@ sub page_index {
 	} else {
 		$page_index .= "[<a href=\"$CGIURL?page=0&amp;lm=$LOGSAVE&amp;$urlquery\">ALL</a>] \n";
 	}
-	$page_index .= "<strong><a href=\"$CGIURL?page=" . ($page+1) . "&amp;lm=$lm&amp;$urlquery\">Ÿ‚Ö</a></strong> \n"
+	$page_index .= "<strong><a href=\"$CGIURL?page=" . ($page+1) . "&amp;lm=$lm&amp;$urlquery\">Next</a></strong> \n"
 		if ($page + 1 <= $n);
 	$page_index .= "<strong><a href=\"$CGIURL?page=$n&amp;lm=$lm&amp;$urlquery\">&gt;&gt;&gt; </a></strong> \n"
 		if ($ee);
@@ -356,7 +356,7 @@ sub page_index {
 
 
 ##################################################
-# ‹L–‚ğˆêŒ•\¦‚·‚é
+# è¨˜äº‹ã‚’ä¸€ä»¶è¡¨ç¤ºã™ã‚‹
 
 sub print_article {
 	
@@ -401,9 +401,9 @@ _EOF
 
 
 ##################################################
-# “ú•t‚ğæ“¾
+# æ—¥ä»˜ã‚’å–å¾—
 
-my @Weeks = qw/“ú Œ ‰Î … –Ø ‹à “y/;
+my @Weeks = qw/æ—¥ æœˆ ç« æ°´ æœ¨ é‡‘ åœŸ/;
 sub getnowdate {
 	my @time = localtime($_[0]);
 	return sprintf("%d/%02d/%02d(%s)%02d:%02d",
@@ -412,7 +412,7 @@ sub getnowdate {
 
 
 ##################################################
-# ‰æ‘œ‰{——
+# ç”»åƒé–²è¦§
 
 sub image_view {
 	open (LOG, $LOG_FILE) or die("Open Error $LOG_FILE: $!\n");
@@ -441,7 +441,7 @@ sub image_view {
 
 
 ##################################################
-# ƒtƒ@ƒCƒ‹ŒŸõ
+# ãƒ•ã‚¡ã‚¤ãƒ«æ¤œç´¢
 
 sub search {
 	
@@ -450,11 +450,11 @@ sub search {
 	
 	print <<_EOF;
 <form method="POST" action="$CGIURL">
-<a href="$CGIURL?help=search">ŒŸõ</a>: <input type="text" size="25" name="kwd" value="$Form{kwd}">
+<a href="$CGIURL?help=search">æ¤œç´¢</a>: <input type="text" size="25" name="kwd" value="$Form{kwd}">
 <input type="submit" value="Search" class="button">
 <select name="cond">
-  <option value="and"$cond_selected[0]>ANDŒŸõ</option>
-  <option value="or"$cond_selected[1]>ORŒŸõ</option>
+  <option value="and"$cond_selected[0]>ANDæ¤œç´¢</option>
+  <option value="or"$cond_selected[1]>ORæ¤œç´¢</option>
 </select>
 <input type="hidden" name="m" value="S">
 <input type="hidden" name="k" value="$MOJIBAKE_TAISAKU">
@@ -464,7 +464,7 @@ _EOF
 	if ($Form{kwd} ne '') {
 		print "<hr>\n";
 		
-		# ˆê’Uƒ_ƒuƒ‹ƒNƒEƒH[ƒg‚É–ß‚·
+		# ä¸€æ—¦ãƒ€ãƒ–ãƒ«ã‚¯ã‚¦ã‚©ãƒ¼ãƒˆã«æˆ»ã™
 		my $tmp;
 		($tmp = $Form{kwd}) =~ s/&quot;/"/g;
 		
@@ -472,7 +472,7 @@ _EOF
 			/^"(.*)"$/ ? scalar ($_ = $1, s/""/&quot;/g, $_) : scalar (s/"/&quot;/g, $_);
 		} $tmp =~ /("[^"]*(?:""[^"]*)*"|\S+)(?:\s|$)/g;
 		
-		print "ŒŸõŒ‹‰ÊF ";
+		print "æ¤œç´¢çµæœï¼š ";
 		foreach (@words){ print "'$_'\n" }
 		
 		print <<_EOF;
@@ -488,7 +488,7 @@ _EOF
 		open (LOG, $LOG_FILE) or die("Open Error $LOG_FILE: $!\n");
 		eval{ flock (LOG, 1) };
 		
-		# $Form{cond}‚É’l‚ª–³‚¯‚ê‚ÎANDŒŸõ‚É
+		# $Form{cond}ã«å€¤ãŒç„¡ã‘ã‚Œã°ANDæ¤œç´¢ã«
 		my $cond = $Form{cond} eq 'or' ? '||' : '&&';
 		my $checkfunc = &build_match_function($cond, @words);
 		
@@ -506,12 +506,12 @@ _EOF
 
 
 ##################################################
-# $_ ‚É‘Î‚µ‚ÄŒŸõ‚ğs‚È‚¤ŠÖ”‚ğì‚é
+# $_ ã«å¯¾ã—ã¦æ¤œç´¢ã‚’è¡Œãªã†é–¢æ•°ã‚’ä½œã‚‹
 
 sub build_match_function {
 	my $cond = shift;
 	my $expr = join ($cond, map { 'm/' . quotemeta($_) . '/i' } @_);
-	my $sub = eval "sub { $expr }";		# –³–¼‚ÌŠÖ”‚ğì¬‚·‚é
+	my $sub = eval "sub { $expr }";		# ç„¡åã®é–¢æ•°ã‚’ä½œæˆã™ã‚‹
 	local ($@);
 	die $@ if $@;
 	return ($sub);
@@ -519,13 +519,13 @@ sub build_match_function {
 
 
 ##################################################
-# “Šeˆ— (ƒtƒ@ƒCƒ‹ƒAƒbƒvƒ[ƒh)
+# æŠ•ç¨¿å‡¦ç† (ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰)
 
 sub file_upload {
 #	return unless ($Referer =~ /$CGIURL/i);
 	
 	if (@UploadFiles > 1) {
-		die("ˆê“x‚ÉƒAƒbƒvƒ[ƒh‚Å‚«‚éƒtƒ@ƒCƒ‹‚Íˆê‚Â‚¾‚¯‚Å‚·B\n");
+		die("Only one file can be uploaded at a time. \n");
 	}
 	my $uploadfile = $UploadFiles[0];
 	
@@ -533,7 +533,7 @@ sub file_upload {
 	return if ($size == 0);
 	
 	if ($MIN_UPLOAD_SIZE and $size < $MIN_UPLOAD_SIZE*1024) {
-		die ("¬‚³‚·‚¬‚éƒtƒ@ƒCƒ‹‚ÍƒAƒbƒvƒ[ƒh‚Å‚«‚Ü‚¹‚ñB\n");
+		die ("Files that are too small cannot be uploaded. \n");
 	}
 	
 	my $suffix = &get_filetype($uploadfile);
@@ -544,7 +544,7 @@ sub file_upload {
 
 
 ##################################################
-# “Šeˆ— (‚¨ŠG•`‚«ƒf[ƒ^)
+# æŠ•ç¨¿å‡¦ç† (ãŠçµµæããƒ‡ãƒ¼ã‚¿)
 
 sub oekaki_upload {
 #	return unless ($Referer =~ /$CGIURL/i);
@@ -555,7 +555,7 @@ sub oekaki_upload {
 	$suffix = $picturefile->{type};
 	
 	if ($picturefile->{width} > $OEKAKI_MAX_SIZE or $picturefile->{height} > $OEKAKI_MAX_SIZE) {
-		die("‰æ‘œ‚ÌƒTƒCƒY‚ª‘å‚«‚·‚¬‚Ü‚·\n");
+		die("Image size is too large\n");
 	}
 	$imageinfo = [$picturefile->{width}, $picturefile->{height}];
 	
@@ -568,7 +568,7 @@ sub oekaki_upload {
 
 
 ##################################################
-# “Šeˆ—‚Q
+# æŠ•ç¨¿å‡¦ç†ï¼’
 
 sub post_upload_data {
 	my ($uploadfile, $suffix, $rl_imageinfo) = @_;
@@ -576,27 +576,27 @@ sub post_upload_data {
 	my (@newlogdata, $num, $filename, $dispname,  $comment, $size, $passwd, $host, $ua, $mimetype, $imageinfo);
 	
 	if ($RENZOKU_FILE ne '' and &renzoku_seigen()) {
-		die("˜A‘±“Še§ŒÀBŠÔ‚ğ’u‚¢‚Ä‚â‚è’¼‚µ‚Ä‚­‚¾‚³‚¢B\n");
+		die("é€£ç¶šæŠ•ç¨¿åˆ¶é™ã€‚æ™‚é–“ã‚’ç½®ã„ã¦ã‚„ã‚Šç›´ã—ã¦ãã ã•ã„ã€‚\n");
 	}
 	
-	# ƒRƒƒ“ƒg
+	# ã‚³ãƒ¡ãƒ³ãƒˆ
 	$comment = $Form{comment};
 	if (length($comment) > $MAX_COMMENT_SIZE) {
-		die("ƒRƒƒ“ƒg‚ª’·‚·‚¬‚Ü‚·B\n");
+		die("ã‚³ãƒ¡ãƒ³ãƒˆãŒé•·ã™ãã¾ã™ã€‚\n");
 	}
 	&autolink(\$comment) if ($AUTOLINK);
 	
-	# ƒtƒ@ƒCƒ‹ƒTƒCƒY
+	# ãƒ•ã‚¡ã‚¤ãƒ«ã‚µã‚¤ã‚º
 	$size = -s $uploadfile->{tmpfile};
 	
-	# íœƒpƒX
+	# å‰Šé™¤ãƒ‘ã‚¹
 	$passwd = ($Form{delpass} ne '') ? &encrypt($Form{delpass}) : '';
 	
 	# USER AGENT
 	$ua = ($UA_REC > 0) ? $ENV{HTTP_USER_AGENT} : '';
 	&htmlencode(\$ua);
 	
-	# ƒzƒXƒg
+	# ãƒ›ã‚¹ãƒˆ
 	$host = ($IP_REC > 0) ? &getremotehost() : '';
 	
 	# Mime-Type
@@ -614,34 +614,34 @@ sub post_upload_data {
 		$num = $id + 1;
 	}
 	
-	# ƒtƒ@ƒCƒ‹–¼
+	# ãƒ•ã‚¡ã‚¤ãƒ«å
 	if ($LOCAL_FILENAME_SW > 0 and !$Form{hidename} and defined ($uploadfile->{basename})) {
 		$dispname = $uploadfile->{basename};
-		# ’·‚·‚¬‚é–¼‘O‚ÍÈ—ª
+		# é•·ã™ãã‚‹åå‰ã¯çœç•¥
 		substr ($dispname, $MAX_FILENAME_SIZE) = '..' if (length ($dispname) > $MAX_FILENAME_SIZE);
 		
 		if ($LOCAL_FILENAME_SW == 2) {
 			$filename = &getuploadfilename($uploadfile->{basename}, $suffix);
 		}
-		# ƒ[ƒJƒ‹‚Ìƒtƒ@ƒCƒ‹–¼‚ªg‚¦‚È‚©‚Á‚½‚ç˜A”Ôƒtƒ@ƒCƒ‹–¼
-		$filename ||= &getrenbanfilename($num, $suffix) or die ("ƒƒOƒf[ƒ^‚ª‰ó‚ê‚Ä‚éH\n");
+		# ãƒ­ãƒ¼ã‚«ãƒ«ã®ãƒ•ã‚¡ã‚¤ãƒ«åãŒä½¿ãˆãªã‹ã£ãŸã‚‰é€£ç•ªãƒ•ã‚¡ã‚¤ãƒ«å
+		$filename ||= &getrenbanfilename($num, $suffix) or die ("ãƒ­ã‚°ãƒ‡ãƒ¼ã‚¿ãŒå£Šã‚Œã¦ã‚‹ï¼Ÿ\n");
 	} else {
-		# —¼•û‚Æ‚à˜A”Ôƒtƒ@ƒCƒ‹–¼
-		$dispname = $filename = &getrenbanfilename($num, $suffix) or die ("ƒƒOƒf[ƒ^‚ª‰ó‚ê‚Ä‚éH\n");
+		# ä¸¡æ–¹ã¨ã‚‚é€£ç•ªãƒ•ã‚¡ã‚¤ãƒ«å
+		$dispname = $filename = &getrenbanfilename($num, $suffix) or die ("ãƒ­ã‚°ãƒ‡ãƒ¼ã‚¿ãŒå£Šã‚Œã¦ã‚‹ï¼Ÿ\n");
 	}
 	&htmlencode(\$dispname);
 	
-	# ƒŠƒl[ƒ€‚·‚é
+	# ãƒªãƒãƒ¼ãƒ ã™ã‚‹
 	rename ($uploadfile->{tmpfile}, "$STORE_DIR/$filename")
 		or die("Write Error $STORE_DIR/$filename: $!\n");
 	
-	# ‚¨ŠG•`‚«ƒf[ƒ^
+	# ãŠçµµæããƒ‡ãƒ¼ã‚¿
 	if ($rl_imageinfo) {
 		
-		# PCHƒtƒ@ƒCƒ‹i‚¨ŠG•`‚«ƒAƒjƒƒf[ƒ^j‹L˜^
+		# PCHãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆãŠçµµæãã‚¢ãƒ‹ãƒ¡ãƒ‡ãƒ¼ã‚¿ï¼‰è¨˜éŒ²
 		if ($rl_imageinfo->[2]) {
 			my $pchfile = $rl_imageinfo->[2];
-			my $pchfilename = &getrenbanfilename($num, 'pch') or die ("ƒƒOƒf[ƒ^‚ª‰ó‚ê‚Ä‚éH\n");
+			my $pchfilename = &getrenbanfilename($num, 'pch') or die ("ãƒ­ã‚°ãƒ‡ãƒ¼ã‚¿ãŒå£Šã‚Œã¦ã‚‹ï¼Ÿ\n");
 			
 			rename ($pchfile->{tmpfile}, $STORE_DIR.'/'.$pchfilename)
 				or die ("Write Error $STORE_DIR/$filename: $!\n");
@@ -654,7 +654,7 @@ sub post_upload_data {
 		$imageinfo = '';
 	}
 	
-	# ƒƒOƒf[ƒ^‚Ìæ“ª‚É’Ç‰Á
+	# ãƒ­ã‚°ãƒ‡ãƒ¼ã‚¿ã®å…ˆé ­ã«è¿½åŠ 
 	push (@newlogdata, join("\t", $num, $suffix, $filename, $dispname, $comment, time, $size, $passwd, $host, $ua, $mimetype, $imageinfo) . "\n");
 	
 	my $i = 1;
@@ -669,8 +669,8 @@ sub post_upload_data {
 		}
 	}
 	
-	# ƒfƒBƒXƒNƒTƒCƒY‚É‚æ‚é©“®íœ‹@”\
-	# ŒÃ‚¢•û‚©‚ç‡”Ô‚ÉÁ‚·B
+	# ãƒ‡ã‚£ã‚¹ã‚¯ã‚µã‚¤ã‚ºã«ã‚ˆã‚‹è‡ªå‹•å‰Šé™¤æ©Ÿèƒ½
+	# å¤ã„æ–¹ã‹ã‚‰é †ç•ªã«æ¶ˆã™ã€‚
 	if ($DISK_SPACE_MAX) {
 		my $use = &disk_used();
 		my $limit = $DISK_SPACE_MAX * 1024;
@@ -687,7 +687,7 @@ sub post_upload_data {
 	eval{ flock (LOG, 8) };
 	close (LOG);
 	
-#	Å‰‚Ìƒy[ƒW‚©‚ç‚É‚·‚éB$Form{lm}‚Íc‚·
+#	æœ€åˆã®ãƒšãƒ¼ã‚¸ã‹ã‚‰ã«ã™ã‚‹ã€‚$Form{lm}ã¯æ®‹ã™
 	$Form{page} = $Form{sort} = $Form{rev} = undef;
 	
 	&make_index_html() if ($MAKE_INDEX_SW);
@@ -695,40 +695,40 @@ sub post_upload_data {
 
 
 ##################################################
-# ƒAƒbƒvƒ[ƒhƒf[ƒ^‚ÌŠg’£q‚ğ“¾‚é
+# ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ãƒ‡ãƒ¼ã‚¿ã®æ‹¡å¼µå­ã‚’å¾—ã‚‹
 
 sub get_filetype {
 	my ($uploadfile) = @_;
 	my $suffix;
 	
-	# Šg’£qè“®‘I‘ğ
+	# æ‹¡å¼µå­æ‰‹å‹•é¸æŠ
 	if ($Form{suffix} =~ /^(\w+)$/) {
 		$suffix = $1;
 		return $suffix if (exists($MIMETYPE{$suffix}));
 	}
 	
-	# ƒ[ƒJƒ‹‚Ìƒtƒ@ƒCƒ‹–¼‚ÌŠg’£q
+	# ãƒ­ãƒ¼ã‚«ãƒ«ã®ãƒ•ã‚¡ã‚¤ãƒ«åã®æ‹¡å¼µå­
 	if ($uploadfile->{basename} =~ /\.(\w+)$/) {
 		$suffix = lc ($1);
 		return $suffix if (exists($MIMETYPE{$suffix}));
 	}
 	
-	# MIMEƒ^ƒCƒv‚©‚çŠg’£q‚ğŒˆ’è‚·‚é
+	# MIMEã‚¿ã‚¤ãƒ—ã‹ã‚‰æ‹¡å¼µå­ã‚’æ±ºå®šã™ã‚‹
 	my $mime_type = $uploadfile->{mimetype};
 	while (my($ext, $mime) = each (%MIMETYPE)) {
 		next unless ($mime);
 		return $ext if ($mime_type =~ /$mime/i);
 	}
-	return $DEF_EXT;	#ƒfƒtƒHƒ‹ƒg
+	return $DEF_EXT;	#ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ
 }
 
 
 ##################################################
-# ‹L˜^ƒtƒ@ƒCƒ‹‚ÌID‚ÆŠg’£q‚©‚çƒtƒ@ƒCƒ‹–¼‚ğ“¾‚é
+# è¨˜éŒ²ãƒ•ã‚¡ã‚¤ãƒ«ã®IDã¨æ‹¡å¼µå­ã‹ã‚‰ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å¾—ã‚‹
 
 sub getrenbanfilename {
 	
-	# ‰˜õ‚³‚ê‚Ä‚È‚¢‚©’²‚×‚é
+	# æ±šæŸ“ã•ã‚Œã¦ãªã„ã‹èª¿ã¹ã‚‹
 	my $id     = $_[0] =~ /^(\d+)$/ ? $1 : return undef;
 	my $suffix = $_[1] =~ /^(\w+)$/ ? $1 : return undef;
 	
@@ -737,8 +737,8 @@ sub getrenbanfilename {
 
 
 ##################################################
-# ƒ[ƒJƒ‹‚Ìƒtƒ@ƒCƒ‹–¼‚©‚çƒtƒ@ƒCƒ‹–¼‚ğæ“¾‚·‚é
-# ‹–‰Â‚³‚ê‚Ä–³‚¢•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚½‚çundef‚ğ•Ô‚·
+# ãƒ­ãƒ¼ã‚«ãƒ«ã®ãƒ•ã‚¡ã‚¤ãƒ«åã‹ã‚‰ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å–å¾—ã™ã‚‹
+# è¨±å¯ã•ã‚Œã¦ç„¡ã„æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ãŸã‚‰undefã‚’è¿”ã™
 
 sub getuploadfilename {
 	my ($filename, $suffix) = @_;
@@ -746,13 +746,13 @@ sub getuploadfilename {
 	if ($filename =~ /^(\w[\w\.\-]*)$/) {
 		$filename = $1;
 		
-		# Šg’£q‚ğ‘}‚°‘Ö‚¦‚é
+		# æ‹¡å¼µå­ã‚’æŒ¿ã’æ›¿ãˆã‚‹
 		$filename =~ s/\.+[^\.]*$//;
 		
-		# ’·‚·‚¬‚éƒtƒ@ƒCƒ‹–¼‚Í“r’†‚Å‚Ô‚Á‚½Ø‚é
+		# é•·ã™ãã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åã¯é€”ä¸­ã§ã¶ã£ãŸåˆ‡ã‚‹
 		substr ($filename, $MAX_FILENAME_SIZE) = '' if (length ($filename) > $MAX_FILENAME_SIZE);
 		
-		# index.html‚Í‚¾‚ß
+		# index.htmlã¯ã ã‚
 		return undef if ($filename =~ /^index$/i and $suffix =~ /^htm/i);
 		
 		return undef if ($PREFIX and $filename =~ /^$PREFIX/o);
@@ -768,42 +768,42 @@ sub getuploadfilename {
 
 
 ##################################################
-# ©“®ƒŠƒ“ƒN
+# è‡ªå‹•ãƒªãƒ³ã‚¯
 
 sub autolink {
 	my $s = shift;
 	
-	my $uric = '\w' . quotemeta(';/?:@=+$,%-.!~*\'()');	# &‚ÍœŠOA_‚Í\w‚ÉŠÜ‚Ü‚ê‚é
+	my $uric = '\w' . quotemeta(';/?:@=+$,%-.!~*\'()');	# &ã¯é™¤å¤–ã€_ã¯\wã«å«ã¾ã‚Œã‚‹
 	$uric .= '\#';	# flagment
 	
 	$$s =~ s{
-		\b (?=[hfgmnt])						# æ“ª‚Ì•¶š‚ğæ“Ç‚İ‚³‚¹‚é‚Æ‘I‘ğ‚ª‘¬‚­‚È‚é
+		\b (?=[hfgmnt])						# å…ˆé ­ã®æ–‡å­—ã‚’å…ˆèª­ã¿ã•ã›ã‚‹ã¨é¸æŠãŒé€Ÿããªã‚‹
 		( (?:https?|ftp|gopher|mailto|news|nntp|telnet) :
-		  [$uric]+ (?:&amp;[$uric]*)*  )	# & ‚Í&amp;‚ÉƒGƒXƒP[ƒv‚³‚ê‚Ä‚¢‚é
+		  [$uric]+ (?:&amp;[$uric]*)*  )	# & ã¯&amp;ã«ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã•ã‚Œã¦ã„ã‚‹
 	}{<a href="$1">$1</a>}gox;
 }
 
 
 ##################################################
-# ƒtƒ@ƒCƒ‹íœƒ‚[ƒh
+# ãƒ•ã‚¡ã‚¤ãƒ«å‰Šé™¤ãƒ¢ãƒ¼ãƒ‰
 
 sub delete {
 	
 	if ($Form{delpass} eq '') {
 		print <<_EOF;
-<h3>IDF$Form{id}‚ğíœ‚µ‚Ü‚·</h3>
+<h3>IDï¼š$Form{id}ã‚’å‰Šé™¤ã—ã¾ã™</h3>
 <form method="POST" action="$CGIURL">
 <input type="hidden" name="m" value="D">
 <input type="hidden" name="id" value="$Form{id}">
-ƒpƒXƒ[ƒh“ü—ÍF<input type="password" size="10" name="delpass" value="@{[&htmlencode($Cookie{delpass})]}">
-<input type="submit" value="íœ" class="button">
-<input type="radio" name="isadmin" value="off" checked>íœƒpƒX
-<input type="radio" name="isadmin" value="on">ŠÇ—ƒpƒX
+Enter passwordï¼š<input type="password" size="10" name="delpass" value="@{[&htmlencode($Cookie{delpass})]}">
+<input type="submit" value="Delete" class="button">
+<input type="radio" name="isadmin" value="off" checked>å‰Šé™¤ãƒ‘ã‚¹
+<input type="radio" name="isadmin" value="on">ç®¡ç†ãƒ‘ã‚¹
 </form>
 _EOF
 	} else {
 		
-		unless ($Form{id} =~ /^\d+$/) { die ("IDF$Form{id}‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½B\n"); }
+		unless ($Form{id} =~ /^\d+$/) { die ("IDï¼š$Form{id}ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚\n"); }
 		
 		my $newlogdata = '';
 		
@@ -820,9 +820,9 @@ _EOF
 					open (PASSWD, $ADMINPASSWD) or die ("Open Error $ADMINPASSWD: $!\n");
 					chomp ($adminpasswd = <PASSWD>);
 					close (PASSWD);
-					die("ƒpƒXƒ|ƒh‚ªˆá‚¢‚Ü‚·B\n") unless (&checkpassword($Form{delpass}, $adminpasswd));
+					die("ãƒ‘ã‚¹ãƒ¯ï¼ãƒ‰ãŒé•ã„ã¾ã™ã€‚\n") unless (&checkpassword($Form{delpass}, $adminpasswd));
 				} else {
-					die("ƒpƒXƒ|ƒh‚ªˆá‚¢‚Ü‚·B\n") unless (&checkpassword($Form{delpass}, $field[7]));
+					die("ãƒ‘ã‚¹ãƒ¯ï¼ãƒ‰ãŒé•ã„ã¾ã™ã€‚\n") unless (&checkpassword($Form{delpass}, $field[7]));
 				}
 				
 				&unlink_filedata (\@field);
@@ -831,7 +831,7 @@ _EOF
 			}
 			$newlogdata .= $_;
 		}
-		unless ($flag) { die("IDF$Form{id}‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½B\n"); }
+		unless ($flag) { die("IDï¼š$Form{id}ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚\n"); }
 		
 		seek (LOG, 0, 0);
 		print LOG $newlogdata;
@@ -839,7 +839,7 @@ _EOF
 		eval { flock (LOG, 8) };
 		close (LOG);
 		
-		print "<h3>ƒtƒ@ƒCƒ‹‚ğíœ‚µ‚Ü‚µ‚½B</h3>\n";
+		print "<h3>ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤ã—ã¾ã—ãŸã€‚</h3>\n";
 		
 		&make_index_html() if ($MAKE_INDEX_SW);
 		
@@ -849,7 +849,7 @@ _EOF
 
 
 ##################################################
-# ƒtƒ@ƒCƒ‹‚ğíœ
+# ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
 
 sub unlink_filedata {
 	my $article = shift;
@@ -878,7 +878,7 @@ sub unlink_filedata {
 
 
 ##################################################
-# ƒpƒXƒ[ƒhˆÃ†‰»
+# ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰æš—å·åŒ–
 
 sub encrypt {
 	my $inpw = shift;
@@ -893,7 +893,7 @@ sub encrypt {
 
 
 ##################################################
-# ƒpƒXƒ[ƒhÆ‡
+# ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ç…§åˆ
 
 sub checkpassword {
 	my ($inpw, $logpw) = @_;
@@ -903,14 +903,14 @@ sub checkpassword {
 
 
 ##################################################
-# ƒCƒ“ƒfƒbƒNƒXƒy[ƒWì¬
-# ‚©‚È‚è“K“–
+# ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãƒšãƒ¼ã‚¸ä½œæˆ
+# ã‹ãªã‚Šé©å½“
 
 sub make_index_html {
 	open (INDEXPAGE, "> $INDEX_FILEPATH") or die ("Open Error $INDEX_FILEPATH: $!\n");
 	my $savefh = select (INDEXPAGE);
 	
-	# •Ï”‚ğ‚¢‚Á‚½‚ñ‘Ş”ğ‚³‚¹‚é
+	# å¤‰æ•°ã‚’ã„ã£ãŸã‚“é€€é¿ã•ã›ã‚‹
 	local ($COUNTFILE, %Form, %Cookie);
 	
 	&print_header('',1);
@@ -924,7 +924,7 @@ sub make_index_html {
 
 
 ##################################################
-# ‚¨ŠG•`‚«ƒAƒvƒŒƒbƒg•\¦
+# ãŠçµµæãã‚¢ãƒ—ãƒ¬ãƒƒãƒˆè¡¨ç¤º
 
 sub print_canvas {
 	
@@ -944,24 +944,24 @@ sub print_canvas {
 	my $notice_msg = '';
 	if ($OEKAKI_ANIMATION and $Form{anime} eq 'on') {
 		$applet_params .= qq|      <param name="thumbnail_type" value="animation">\n|;
-		$notice_msg = qq|<tr><td colspan="2"><strong>•`‰æƒAƒjƒƒf[ƒ^‹L˜^’†</strong></td></tr>\n|;
+		$notice_msg = qq|<tr><td colspan="2"><strong>æç”»ã‚¢ãƒ‹ãƒ¡ãƒ‡ãƒ¼ã‚¿è¨˜éŒ²ä¸­</strong></td></tr>\n|;
 	}
 	
 	my $addoption = '';
 	print <<_EOF;
 <script type="text/javascript" src="$BASE_URL/palette.js" charset="Shift_JIS"></script>
 <script type="text/javascript"><!--
-  // PaintBBS‚©‚ç“Á’è‚Ìƒ^ƒCƒ~ƒ“ƒO‚ÅŒÄ‚Î‚ê‚é
+  // PaintBBSã‹ã‚‰ç‰¹å®šã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§å‘¼ã°ã‚Œã‚‹
   function paintBBSCallback(value) {
-    if (value == "header") { //‘—M‘O
+    if (value == "header") { //é€ä¿¡å‰
       var pf = document.post_field;
       
-      // StringƒIƒuƒWƒFƒNƒg‚ğéŒ¾‚µ‚È‚¢‚Æ‘Ê–Ú‚ç‚µ‚¢
+      // Stringã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å®£è¨€ã—ãªã„ã¨é§„ç›®ã‚‰ã—ã„
       var postdata = new String();
       
       for (var i=0; i < pf.elements.length; i++) {
         if (pf.elements[i].name) {
-          // IE3 NN2‚Å“®‚©‚È‚¢‚¯‚Ç–³‹R(L[M)ƒm
+          // IE3 NN2ã§å‹•ã‹ãªã„ã‘ã©ç„¡è¦–ãƒ½(Â´ãƒ¼ï½€)ãƒ
           if (pf.elements[i].type == "select-one" || pf.elements[i].type == "select-multiple") {
             for (var j=0; j < pf.elements[i].options.length; j++) {
               if (pf.elements[i].options[j].selected)
@@ -979,12 +979,12 @@ sub print_canvas {
     }
   }
   
-  // escape()‚ªUnicode‚É•ÏŠ·‚³‚ê‚é‘Îô
+  // escape()ãŒUnicodeã«å¤‰æ›ã•ã‚Œã‚‹å¯¾ç­–
   function url_encode(str) {
     var enc = ""
     for (var i=0; i<str.length; i++) {
       var c = str.substring(i, i+1);
-      // ASCII‚Ì 0-9 A-Z a-z ˆÈŠOA“ú–{Œê‚ÍƒXƒLƒbƒv‚·‚é
+      // ASCIIã® 0-9 A-Z a-z ä»¥å¤–ã€æ—¥æœ¬èªã¯ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
       if ( c <= "\057"
         || ("\072" <= c && c <= "\100")
         || ("\133" <= c && c <= "\140")
@@ -999,18 +999,18 @@ sub print_canvas {
   }
 //--></script>
 <noscript>
-  <h3>JavaScript‚ª—LŒø‚Å‚È‚¢‚½‚ßˆê•”‹@”\\‚ª“®ì’v‚µ‚Ü‚¹‚ñB</h3>
+  <h3>JavaScriptãŒæœ‰åŠ¹ã§ãªã„ãŸã‚ä¸€éƒ¨æ©Ÿèƒ½\ãŒå‹•ä½œè‡´ã—ã¾ã›ã‚“ã€‚</h3>
 </noscript>
 
 <a href="$CGIURL">Return</a>
 
 <hr>
 <table border=0 cellspacing=0 cellpadding=0>
-  <!-- ƒ{ƒ^ƒ“‚ğ‰Ÿ‚·‚ÆAƒ‰ƒCƒuƒRƒlƒNƒg‚ğg‚Á‚ÄPaintBBS‚Ì‘—Mˆ—‚ğ‚·‚é -->
+  <!-- ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã¨ã€ãƒ©ã‚¤ãƒ–ã‚³ãƒã‚¯ãƒˆã‚’ä½¿ã£ã¦PaintBBSã®é€ä¿¡å‡¦ç†ã‚’ã™ã‚‹ -->
   <script type="text/javascript"><!--
     document.write(
       '<tr><td colspan="2"><form name="post_field">'
-    + 'ƒRƒƒ“ƒg<br>'
+    + 'ã‚³ãƒ¡ãƒ³ãƒˆ<br>'
     + '<input type="text" size="60" name="comment" value="">'
     + '<input type="button" value=" Post " class="button" onClick="document.paintbbs.pExit()"><input type="reset" value="Cancel" class="button"><br>'
     + '<a href="$CGIURL?help=del">del pass</a>: <input type="password" size="10" name="delpass" maxlength="10" value="@{[&htmlencode($Cookie{delpass})]}">  '
@@ -1025,7 +1025,7 @@ sub print_canvas {
   <td valign="top">
     <applet name="paintbbs" code="pbbs.PaintBBS.class" codebase="$BASE_URL" archive="PaintBBS.jar"
             width="$applet_width" height="$applet_height" mayscript
-            alt="‚²g—p‚Ìƒuƒ‰ƒEƒU‚ÍJava‚ª”ñƒAƒNƒeƒBƒuó‘Ô‚É‚È‚Á‚Ä‚¢‚Ü‚·B‚»‚Ì‚½‚ßƒyƒCƒ“ƒgƒc[ƒ‹‚ª•\¦‚³‚ê‚Ü‚¹‚ñB">
+            alt="ã”ä½¿ç”¨ã®ãƒ–ãƒ©ã‚¦ã‚¶ã¯JavaãŒéã‚¢ã‚¯ãƒ†ã‚£ãƒ–çŠ¶æ…‹ã«ãªã£ã¦ã„ã¾ã™ã€‚ãã®ãŸã‚ãƒšã‚¤ãƒ³ãƒˆãƒ„ãƒ¼ãƒ«ãŒè¡¨ç¤ºã•ã‚Œã¾ã›ã‚“ã€‚">
       <param name="image_width"  value="$width">
       <param name="image_height" value="$height">
       <param name="image_jpeg" value="true">
@@ -1048,11 +1048,11 @@ $applet_params
   <tr>
     <td colspan="2"><br>
     <p>
-      ƒ~ƒX‚µ‚Äƒy[ƒW‚ğ•Ï‚¦‚½‚èƒEƒCƒ“ƒhƒE‚ğÁ‚µ‚Ä‚µ‚Ü‚Á‚½‚è‚µ‚½ê‡‚Í—‚¿‚Â‚¢‚Ä“¯‚¶ƒLƒƒƒ“ƒoƒX‚Ì•‚Å<br>
-      •ÒWƒy[ƒW‚ğŠJ‚«‚È‚¨‚µ‚Ä‚İ‚Ä‰º‚³‚¢B‘å’ï‚Íc‚Á‚Ä‚¢‚Ü‚·B<br>
-      MacIE‚âƒlƒXƒP‚S.*‚Ìê‡‚Íƒuƒ‰ƒEƒU‚ÌƒEƒCƒ“ƒhƒE‚ğ‘S‚Ä•Â‚¶‚Ä‚µ‚Ü‚Á‚½‚ç•œ‹Œo—ˆ‚Ü‚¹‚ñj<br>
+      ãƒŸã‚¹ã—ã¦ãƒšãƒ¼ã‚¸ã‚’å¤‰ãˆãŸã‚Šã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚’æ¶ˆã—ã¦ã—ã¾ã£ãŸã‚Šã—ãŸå ´åˆã¯è½ã¡ã¤ã„ã¦åŒã˜ã‚­ãƒ£ãƒ³ãƒã‚¹ã®å¹…ã§<br>
+      ç·¨é›†ãƒšãƒ¼ã‚¸ã‚’é–‹ããªãŠã—ã¦ã¿ã¦ä¸‹ã•ã„ã€‚å¤§æŠµã¯æ®‹ã£ã¦ã„ã¾ã™ã€‚<br>
+      MacIEã‚„ãƒã‚¹ã‚±ï¼”.*ã®å ´åˆã¯ãƒ–ãƒ©ã‚¦ã‚¶ã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚’å…¨ã¦é–‰ã˜ã¦ã—ã¾ã£ãŸã‚‰å¾©æ—§å‡ºæ¥ã¾ã›ã‚“ï¼‰<br>
     </p>
-    <p><a href="$BASE_URL/shiihelp.html" target="_blank">‚¨ŠG•`‚«‚µ‚¡ƒAƒvƒŒƒbƒg‚Ìg‚¢•û</a></p>
+    <p><a href="$BASE_URL/shiihelp.html" target="_blank">ãŠçµµæãã—ãƒã‚¢ãƒ—ãƒ¬ãƒƒãƒˆã®ä½¿ã„æ–¹</a></p>
     </td>
   </tr>
 </table>
@@ -1061,7 +1061,7 @@ _EOF
 
 
 ##################################################
-# ‹L–‚ğˆêŒæ‚Á‚Ä‚­‚é
+# è¨˜äº‹ã‚’ä¸€ä»¶å–ã£ã¦ãã‚‹
 
 sub get_article {
 	
@@ -1082,14 +1082,14 @@ sub get_article {
 		eval { flock (LOG, 8) };
 		close (LOG);
 	}
-	if (!$flag) { die("ŠY“–ƒtƒ@ƒCƒ‹‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½B\n"); }
+	if (!$flag) { die("è©²å½“ãƒ•ã‚¡ã‚¤ãƒ«ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚\n"); }
 	
 	return @msg;
 }
 
 
 ##################################################
-# PCHƒAƒjƒ‚ğ•`‰æ
+# PCHã‚¢ãƒ‹ãƒ¡ã‚’æç”»
 
 sub oekaki_movie {
 	
@@ -1097,11 +1097,11 @@ sub oekaki_movie {
 	 = &get_article ($Form{id});
 	
 	my ($width, $height, $pch) = split (/:/, $imageinfo);
-	unless ($pch eq 'pch') { die ("‚±‚Ìƒtƒ@ƒCƒ‹‚É‚ÍƒAƒjƒƒf[ƒ^‚Í‹L˜^‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ\n"); }
+	unless ($pch eq 'pch') { die ("ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã«ã¯ã‚¢ãƒ‹ãƒ¡ãƒ‡ãƒ¼ã‚¿ã¯è¨˜éŒ²ã•ã‚Œã¦ã„ã¾ã›ã‚“\n"); }
 	
 	my $pchfile;
 	($pchfile = $filename) =~ s/\.+[^\.]*$/\.pch/;
-	unless (-f "$STORE_DIR/$pchfile") { die ("‚±‚Ìƒtƒ@ƒCƒ‹‚É‚ÍƒAƒjƒƒf[ƒ^‚Í‹L˜^‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ\n"); }
+	unless (-f "$STORE_DIR/$pchfile") { die ("ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã«ã¯ã‚¢ãƒ‹ãƒ¡ãƒ‡ãƒ¼ã‚¿ã¯è¨˜éŒ²ã•ã‚Œã¦ã„ã¾ã›ã‚“\n"); }
 	my $datasize = &ins_comma(-s _);
 	
 	$pchfile = $STORE_URL . $pchfile;
@@ -1112,7 +1112,7 @@ sub oekaki_movie {
 <div align="center">
   <applet name="paintbbs" code="pbbs.PaintBBS.class" codebase="$BASE_URL" archive="PaintBBS.jar"
           width="$width" height="$height" mayscript
-          alt="‚²g—p‚Ìƒuƒ‰ƒEƒU‚ÍJava‚ª”ñƒAƒNƒeƒBƒuó‘Ô‚É‚È‚Á‚Ä‚¢‚Ü‚·B‚»‚Ì‚½‚ßƒyƒCƒ“ƒgƒc[ƒ‹‚ª•\¦‚³‚ê‚Ü‚¹‚ñB">
+          alt="ã”ä½¿ç”¨ã®ãƒ–ãƒ©ã‚¦ã‚¶ã¯JavaãŒéã‚¢ã‚¯ãƒ†ã‚£ãƒ–çŠ¶æ…‹ã«ãªã£ã¦ã„ã¾ã™ã€‚ãã®ãŸã‚ãƒšã‚¤ãƒ³ãƒˆãƒ„ãƒ¼ãƒ«ãŒè¡¨ç¤ºã•ã‚Œã¾ã›ã‚“ã€‚">
   <param name="image_width" value="$width">
   <param name="image_height" value="$height">
   <param name="viewer" value="true">
@@ -1128,15 +1128,15 @@ sub oekaki_movie {
   }
   document.write (
       '<form>'
-    + '  <small>Ä¶‘¬“x '
+    + '  <small>å†ç”Ÿé€Ÿåº¦ '
     + '  <select name="speed">'
-    + '    <option value="-1">Å‘¬</option>'
-    + '    <option value="0">‚‘¬</option>'
-    + '    <option value="10" selected>’†‘¬</option>'
-    + '    <option value="80">“İ‘«</option>'
-    + '    <option value="500">ƒXƒ[</option>'
+    + '    <option value="-1">æœ€é€Ÿ</option>'
+    + '    <option value="0">é«˜é€Ÿ</option>'
+    + '    <option value="10" selected>ä¸­é€Ÿ</option>'
+    + '    <option value="80">éˆè¶³</option>'
+    + '    <option value="500">ã‚¹ãƒ­ãƒ¼</option>'
     + '  </select>'
-    + '  <input type="button" value="•ÏX" class="button" onClick="setSpeed(this.form)" onKeyPress="setSpeed(this.form)">'
+    + '  <input type="button" value="å¤‰æ›´" class="button" onClick="setSpeed(this.form)" onKeyPress="setSpeed(this.form)">'
     + '  </small>'
     + '</form>'
   );
@@ -1150,7 +1150,7 @@ _EOF
 
 
 ##################################################
-# CGIƒtƒH[ƒ€î•ñ‚Ìæ“¾
+# CGIãƒ•ã‚©ãƒ¼ãƒ æƒ…å ±ã®å–å¾—
 
 sub read_cgistream {
 	my ($content_type, $content_length, $url_encoded_data,
@@ -1160,7 +1160,7 @@ sub read_cgistream {
 	$content_length = $ENV{CONTENT_LENGTH};
 	
 	if ($MAX_UPLOAD_SIZE and $content_length > $MAX_UPLOAD_SIZE*1024 + $MAX_COMMENT_SIZE) {
-		die("‘—Mƒf[ƒ^—Ê‚ªŠù’è’l‚ğ’´‚¦‚Ä‚¢‚Ü‚·B\n");
+		die("é€ä¿¡ãƒ‡ãƒ¼ã‚¿é‡ãŒæ—¢å®šå€¤ã‚’è¶…ãˆã¦ã„ã¾ã™ã€‚\n");
 	}
 	
 	if ($content_type =~ m|multipart/form-data|) {
@@ -1198,9 +1198,9 @@ sub read_cgistream {
 		}
 	}
 	
-	# Š¿šƒR[ƒh•ÏŠ·
-	# $Form{k}‚É“ü‚ê‚½•¶š‚ª•¶š‰»‚¯‚µ‚Ä‚¢‚½‚ç•ÏŠ·‚ğ‚·‚é
-	# “Á‚É•ÏŠ·‚ğ•K—v‚Æ‚µ‚È‚¢‚Í $Form{k} ‚É’l‚ğ“ü‚ê‚Ä‚¢‚È‚¢
+	# æ¼¢å­—ã‚³ãƒ¼ãƒ‰å¤‰æ›
+	# $Form{k}ã«å…¥ã‚ŒãŸæ–‡å­—ãŒæ–‡å­—åŒ–ã‘ã—ã¦ã„ãŸã‚‰å¤‰æ›ã‚’ã™ã‚‹
+	# ç‰¹ã«å¤‰æ›ã‚’å¿…è¦ã¨ã—ãªã„æ™‚ã¯ $Form{k} ã«å€¤ã‚’å…¥ã‚Œã¦ã„ãªã„
 	if (!$skip_jconv and $Form{k} ne '' and $Form{k} ne $MOJIBAKE_TAISAKU) {
 		require 'jcode.pl';
 		for (keys(%Form)){ &jcode::convert(\$Form{$_}, 'sjis'); }
@@ -1209,16 +1209,16 @@ sub read_cgistream {
 	&getcookie();
 	
 	if ($Form{act} eq 'Up/Reload') {
-		# ƒ`ƒFƒbƒNƒ{ƒbƒNƒX‚ªON‚È‚çƒNƒbƒL[‚ğH‚×‚é
+		# ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãŒONãªã‚‰ã‚¯ãƒƒã‚­ãƒ¼ã‚’é£Ÿã¹ã‚‹
 		if ($Form{cookie_ok}) {
-			# ‚È‚ñ‚©•Ï
+			# ãªã‚“ã‹å¤‰
 			my $tmp = $Form{delpass};
 			$tmp =~ s/&quot;/"/g;
 			$tmp =~ s/&lt;/</g;
 			$tmp =~ s/&gt;/>/g;
 			$tmp =~ s/&amp;/&/g;
 			&setcookie('delpass' => $tmp);
-		# ƒ`ƒFƒbƒNƒ{ƒbƒNƒX‚ªOFF‚È‚Ì‚ÉƒNƒbƒL[‚ª‘¶İ‚·‚é‚Æ‚«‚ÍƒNƒbƒL[‚ğ”jŠü
+		# ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãŒOFFãªã®ã«ã‚¯ãƒƒã‚­ãƒ¼ãŒå­˜åœ¨ã™ã‚‹ã¨ãã¯ã‚¯ãƒƒã‚­ãƒ¼ã‚’ç ´æ£„
 		} elsif (%Cookie) {	
 			&setcookie();
 		}
@@ -1229,7 +1229,7 @@ sub storeformdata {
 	
 	return if ($value eq "");
 	
-	# ‰üsƒR[ƒh‚ğ“ˆê‚·‚é
+	# æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã‚’çµ±ä¸€ã™ã‚‹
 #	$value =~ s/\x0D\x0A/\n/g;
 #	$value =~ tr/\x0D\x0A/\n\n/;
 	
@@ -1238,7 +1238,7 @@ sub storeformdata {
 
 
 ##################################################
-# •¶š—ñ’†‚ÌHTMLƒ^ƒO‚ğ–³Œø‚É‚·‚é
+# æ–‡å­—åˆ—ä¸­ã®HTMLã‚¿ã‚°ã‚’ç„¡åŠ¹ã«ã™ã‚‹
 
 sub htmlencode {
 	my $thingy = shift;
@@ -1253,7 +1253,7 @@ sub htmlencode {
 
 
 ##################################################
-# URLƒGƒ“ƒR[ƒh
+# URLã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰
 
 sub urlencode {
 	my $thingy = shift;
@@ -1264,7 +1264,7 @@ sub urlencode {
 
 
 ##################################################
-# COOKIE‚ğ‘—M
+# COOKIEã‚’é€ä¿¡
 
 sub setcookie {
 	my ($cookie, $expday, $gmt, $path);
@@ -1276,7 +1276,7 @@ sub setcookie {
 		my @week  = qw/Sun Mon Tue Wed Thu Fri Sat/;
 		my @month = qw/Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec/;
 		
-		$expday = 60; # ƒNƒbƒL[‚Ì—LŒøŠúŒÀ‚Í60“úŠÔ
+		$expday = 60; # ã‚¯ãƒƒã‚­ãƒ¼ã®æœ‰åŠ¹æœŸé™ã¯60æ—¥é–“
 		my @t = gmtime(time + $expday * 24 * 60 * 60);
 		$gmt = sprintf("%s, %02d-%s-%04d %02d:%02d:%02d GMT",
 			$week[$t[6]], $t[3], $month[$t[4]], $t[5]+1900, $t[2], $t[1], $t[0]);
@@ -1286,7 +1286,7 @@ sub setcookie {
 			my $val = shift(@_);
 			$cookie .= $key . '=' . &urlencode($val);
 			$cookie .= '&' if (@_);
-			$Cookie{$key} = $val;	# Œ»İ‚Ì’l‚É”½‰f‚³‚¹‚é
+			$Cookie{$key} = $val;	# ç¾åœ¨ã®å€¤ã«åæ˜ ã•ã›ã‚‹
 		}
 	}
 	if ($ENV{SCRIPT_NAME}) {
@@ -1298,7 +1298,7 @@ sub setcookie {
 
 
 ##################################################
-# COOKIE‚ğæ“¾
+# COOKIEã‚’å–å¾—
 
 sub getcookie {
     
@@ -1313,7 +1313,7 @@ sub getcookie {
 
 
 ##################################################
-# ƒoƒCƒgƒTƒCƒY‚É’PˆÊ‚ğ•t‚¯‚é
+# ãƒã‚¤ãƒˆã‚µã‚¤ã‚ºã«å˜ä½ã‚’ä»˜ã‘ã‚‹
 
 sub byte_calc {
 	my ($n, $m, $unit);
@@ -1328,7 +1328,7 @@ sub byte_calc {
 	}
 	if ($m) {
 		$n /= $m;
-		if ($n != int($n)) {	# ­”
+		if ($n != int($n)) {	# å°‘æ•°
 			$n = ($n < 100) ? sprintf("%.3g", $n) : int($n);
 		}
 	}
@@ -1337,7 +1337,7 @@ sub byte_calc {
 
 
 ##################################################
-# 3Œ…‚²‚Æ‚ÉƒRƒ“ƒ}‚Å‹æØ‚é
+# 3æ¡ã”ã¨ã«ã‚³ãƒ³ãƒã§åŒºåˆ‡ã‚‹
 
 sub ins_comma {
 	my $n = shift;
@@ -1347,14 +1347,14 @@ sub ins_comma {
 
 
 ##################################################
-# ƒfƒBƒXƒNg—p—Ê
+# ãƒ‡ã‚£ã‚¹ã‚¯ä½¿ç”¨é‡
 
 sub disk_used {
 	my $use;
 	opendir (DIR, $STORE_DIR) or die("Open Error $STORE_DIR: $!\n");
 	while (defined($_ = readdir(DIR))) {
 		next if (/^\.\.?$/);
-		next if (/\.tmp$/);		# tmpƒtƒ@ƒCƒ‹‚ÌŠg’£q‚É‹C‚ğ‚Â‚¯‚½‚Ù‚¤‚ª‚¢‚¢‚©‚à
+		next if (/\.tmp$/);		# tmpãƒ•ã‚¡ã‚¤ãƒ«ã®æ‹¡å¼µå­ã«æ°—ã‚’ã¤ã‘ãŸã»ã†ãŒã„ã„ã‹ã‚‚
 		$use += -s $STORE_DIR . '/' . $_;
 	}
 	closedir (DIR);	
@@ -1363,7 +1363,7 @@ sub disk_used {
 
 
 ##################################################
-# ƒŠƒ‚[ƒgƒzƒXƒg–¼æ“¾
+# ãƒªãƒ¢ãƒ¼ãƒˆãƒ›ã‚¹ãƒˆåå–å¾—
 
 my $RemoteHost;
 sub getremotehost {
@@ -1378,7 +1378,7 @@ sub getremotehost {
 
 
 ##################################################
-# ˜A‘±“Še§ŒÀ
+# é€£ç¶šæŠ•ç¨¿åˆ¶é™
 
 sub renzoku_seigen {
 	my ($myip, @list, $flag);
@@ -1410,7 +1410,7 @@ sub renzoku_seigen {
 
 
 ##################################################
-# ‹Ö~ƒhƒƒCƒ“‚©’²‚×‚é (return 1:‹Ö~ƒhƒƒCƒ“, 0:‚»‚Ì‘¼)
+# ç¦æ­¢ãƒ‰ãƒ¡ã‚¤ãƒ³ã‹èª¿ã¹ã‚‹ (return 1:ç¦æ­¢ãƒ‰ãƒ¡ã‚¤ãƒ³, 0:ãã®ä»–)
 
 sub checkdomain {
 	my ($domain, $host, $hostip, $ret);
@@ -1429,7 +1429,7 @@ sub checkdomain {
 			if (defined($mask)) {
 				$mask = ~((1<<(32-$mask))-1);
 			} else {
-				# ‰ºˆÊƒrƒbƒg‚ª0‚Å–„‚ß‚ç‚ê‚Ä‚¢‚é‚©’²‚×‚é
+				# ä¸‹ä½ãƒ“ãƒƒãƒˆãŒ0ã§åŸ‹ã‚ã‚‰ã‚Œã¦ã„ã‚‹ã‹èª¿ã¹ã‚‹
 				$mask = ~0;
 				foreach (0xFFFFFFFF, 0xFFFFFF, 0xFFFF, 0xFF) {
 					unless ($domip & $_) {
@@ -1438,12 +1438,12 @@ sub checkdomain {
 					}
 				}
 			}
-			if (($hostip & $mask) == ($domip & $mask)) {# w’èIP
+			if (($hostip & $mask) == ($domip & $mask)) {# æŒ‡å®šIP
 				close (AXSCTRL); return undef;
 			}
 		} else {
 			$host ||= &getremotehost();
-			if ($host =~ m#(^|\.)\Q${_}\E$#) {			# w’èƒhƒƒCƒ“–¼‚ÅI‚í‚éƒzƒXƒg
+			if ($host =~ m#(^|\.)\Q${_}\E$#) {			# æŒ‡å®šãƒ‰ãƒ¡ã‚¤ãƒ³åã§çµ‚ã‚ã‚‹ãƒ›ã‚¹ãƒˆ
 				close (AXSCTRL); return undef;
 			}
 		}
@@ -1458,7 +1458,7 @@ sub inetaddr2int {
 
 
 ##################################################
-# QÆæ‚ğ’²‚×‚é
+# å‚ç…§å…ˆã‚’èª¿ã¹ã‚‹
 sub checkreferer {
 	my $rl_except = shift;
 	
@@ -1473,15 +1473,15 @@ sub checkreferer {
 
 
 ##################################################
-# ƒJƒEƒ“ƒ^
+# ã‚«ã‚¦ãƒ³ã‚¿
 
 sub counter {
 	local ($@);
 	open (COUNTER, "+< $COUNTFILE") or return "ERROR";
 	
 	eval{ flock (COUNTER, 2) };
-	# ƒmƒ“ƒuƒƒbƒLƒ“ƒOBƒJƒEƒ“ƒ^‚²‚Æ‚«‚ÅƒuƒƒbƒN‚³‚¹‚é‚Ì‚à”n­”n­‚µ‚¢‚Æv‚Á‚½
-	# ‚Å‚à‚â‚Á‚Ï‚è‚â‚ß‚½
+	# ãƒãƒ³ãƒ–ãƒ­ãƒƒã‚­ãƒ³ã‚°ã€‚ã‚«ã‚¦ãƒ³ã‚¿ã”ã¨ãã§ãƒ–ãƒ­ãƒƒã‚¯ã•ã›ã‚‹ã®ã‚‚é¦¬é¹¿é¦¬é¹¿ã—ã„ã¨æ€ã£ãŸ
+	# ã§ã‚‚ã‚„ã£ã±ã‚Šã‚„ã‚ãŸ
 #	if (!eval{ flock(COUNTER, 6) } and !$@) { close (COUNTER); return "BUSY"; }
 	
 #	my $count = <COUNTER>;
@@ -1501,64 +1501,64 @@ sub counter {
 	eval{ flock (COUNTER, 8) };
 	close (COUNTER);
 	
-	return "$date ‚©‚ç $count";
+	return "$date ã‹ã‚‰ $count";
 }
 
 
 ##################################################
-# ƒGƒ‰[o—Í
+# ã‚¨ãƒ©ãƒ¼å‡ºåŠ›
 
 sub cgidie {
 	my $errmsg = join('<br>', @_);
 	
-	&print_header('ƒGƒ‰[');
+	&print_header('ã‚¨ãƒ©ãƒ¼');
 	print "<h3>$errmsg</h3>\n<a href=\"$CGIURL\">Return</a>\n</body>\n</html>\n";
 	exit;
 }
 
 
 ##################################################
-# ƒwƒ‹ƒv•\¦
+# ãƒ˜ãƒ«ãƒ—è¡¨ç¤º
 
 sub help {
 	
 	my $help_genre = $Form{help};
 	if ($help_genre eq 'file') {
-		print "<h3>‘Î‰ƒtƒ@ƒCƒ‹ƒtƒH[ƒ}ƒbƒg</h3>\n<p><tt>";
+		print "<h3>å¯¾å¿œãƒ•ã‚¡ã‚¤ãƒ«ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ</h3>\n<p><tt>";
 		my $i = 0;
 		for (sort keys(%MIMETYPE)) {
 			print "*.$_ ";
 			print "<br>\n" if ((++$i % 12) == 0);
 		}
-		print "<br>\n</tt>\n‚»‚Ì‘¼‚Ìƒtƒ@ƒCƒ‹ƒtƒH[ƒ}ƒbƒg‚Í“Á‚Éw’è‚Ì–³‚¢ŒÀ‚è*.$DEF_EXT‚Æ‚µ‚Ä•Û‘¶‚³‚ê‚Ü‚·B<br></p>\n";
+		print "<br>\n</tt>\nãã®ä»–ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã¯ç‰¹ã«æŒ‡å®šã®ç„¡ã„é™ã‚Š*.$DEF_EXTã¨ã—ã¦ä¿å­˜ã•ã‚Œã¾ã™ã€‚<br></p>\n";
 	} elsif ($help_genre eq 'del') {
 		print <<_EOF;
-<h3>“Še‹L–íœƒpƒX‚É‚Â‚¢‚Ä</h3>
+<h3>æŠ•ç¨¿è¨˜äº‹å‰Šé™¤ãƒ‘ã‚¹ã«ã¤ã„ã¦</h3>
 <p>
-“ŠeÒ‚ªŒãX©•ª‚Ì“Še‹L–‚ğíœ‚µ‚½‚¢ê‡‚É“ü—Í‚µ‚Ü‚·B<br>
-ƒpƒXƒ[ƒh‚ª“ü—Í‚³‚ê‚È‚¢‚Ü‚Ü“Še‚³‚ê‚½‹L–‚ÍŠÇ—Ò‚É‚µ‚©íœ‚Å‚«‚È‚­‚È‚è‚Ü‚·B<br>
-ƒpƒXƒ[ƒh‚É‚Í10•¶š–¢–‚Ì‰p”‹L†‚ğw’è‚Å‚«‚Ü‚·B<br>
+æŠ•ç¨¿è€…ãŒå¾Œã€…è‡ªåˆ†ã®æŠ•ç¨¿è¨˜äº‹ã‚’å‰Šé™¤ã—ãŸã„å ´åˆã«å…¥åŠ›ã—ã¾ã™ã€‚<br>
+ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒå…¥åŠ›ã•ã‚Œãªã„ã¾ã¾æŠ•ç¨¿ã•ã‚ŒãŸè¨˜äº‹ã¯ç®¡ç†è€…ã«ã—ã‹å‰Šé™¤ã§ããªããªã‚Šã¾ã™ã€‚<br>
+ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã«ã¯10æ–‡å­—æœªæº€ã®è‹±æ•°è¨˜å·ã‚’æŒ‡å®šã§ãã¾ã™ã€‚<br>
 </p>
 _EOF
 	} elsif ($help_genre eq 'search') {
 		print <<_EOF;
-<h3>ŒŸõƒL[ƒ[ƒh‚É‚Â‚¢‚Ä</h3>
+<h3>æ¤œç´¢ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã«ã¤ã„ã¦</h3>
 <p>
-ƒL[ƒ[ƒh‚Íu”¼ŠpƒXƒy[ƒXv‚Å‹æØ‚Á‚Ä•¡”w’è‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B<br>
-ƒL[ƒ[ƒh‚É”¼ŠpƒXƒy[ƒX‚ğg‚¢‚½‚¢‚Æ‚«‚Í‚»‚ÌƒL[ƒ[ƒh‚ğ”¼Šp‚Ìƒ_ƒuƒ‹ƒNƒEƒH[ƒgu"v‚ÅŠ‡‚Á‚Ä‚­‚¾‚³‚¢B<br>
-ƒRƒƒ“ƒg‚Æƒtƒ@ƒCƒ‹–¼‚ÌƒtƒB[ƒ‹ƒh‚Éƒ}ƒbƒ`‚µ‚Ü‚·B<br>
+ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã¯ã€ŒåŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã€ã§åŒºåˆ‡ã£ã¦è¤‡æ•°æŒ‡å®šã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚<br>
+ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã«åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’ä½¿ã„ãŸã„ã¨ãã¯ãã®ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‚’åŠè§’ã®ãƒ€ãƒ–ãƒ«ã‚¯ã‚¦ã‚©ãƒ¼ãƒˆã€Œ"ã€ã§æ‹¬ã£ã¦ãã ã•ã„ã€‚<br>
+ã‚³ãƒ¡ãƒ³ãƒˆã¨ãƒ•ã‚¡ã‚¤ãƒ«åã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ãƒãƒƒãƒã—ã¾ã™ã€‚<br>
 </p>
 _EOF
 	} elsif ($help_genre eq 'disk') {
 		my $use = &disk_used();
 		
 		print <<_EOF;
-<h3>ƒfƒBƒXƒNg—p—Ê</h3>
+<h3>ãƒ‡ã‚£ã‚¹ã‚¯ä½¿ç”¨é‡</h3>
 <p>
-Œ»İ‚ÌƒfƒBƒXƒNg—p—Ê‚Í${\(&byte_calc($use/1024))} (${\(&ins_comma($use))}ƒoƒCƒg)‚Å‚·B<br>
+ç¾åœ¨ã®ãƒ‡ã‚£ã‚¹ã‚¯ä½¿ç”¨é‡ã¯${\(&byte_calc($use/1024))} (${\(&ins_comma($use))}ãƒã‚¤ãƒˆ)ã§ã™ã€‚<br>
 _EOF
 		if ($DISK_SPACE_MAX) {
-			print "${\(&byte_calc($DISK_SPACE_MAX))} ‚ğ’´‚¦‚é‚Æ©“®“I‚Éƒtƒ@ƒCƒ‹‚ªíœ‚³‚ê‚Ü‚·B<br>\n";
+			print "${\(&byte_calc($DISK_SPACE_MAX))} ã‚’è¶…ãˆã‚‹ã¨è‡ªå‹•çš„ã«ãƒ•ã‚¡ã‚¤ãƒ«ãŒå‰Šé™¤ã•ã‚Œã¾ã™ã€‚<br>\n";
 		}
 		print "</p>\n";
 	}
@@ -1567,10 +1567,10 @@ _EOF
 
 
 ##################################################
-# ŠÇ—ƒpƒXİ’è
+# ç®¡ç†ãƒ‘ã‚¹è¨­å®š
 
 sub set_adimn_passwd {
-	&print_header('‚Í‚¶‚ß‚Ü‚µ‚Ä(^„D^)');
+	&print_header('ã¯ã˜ã‚ã¾ã—ã¦(^Ğ”^)');
 	
 	if ($Form{admpass} ne '') {
 		my $encrypt = &encrypt($Form{admpass});
@@ -1579,11 +1579,11 @@ sub set_adimn_passwd {
 		print PASSWD $encrypt;
 		close (PASSWD);
 		chmod (0600, $ADMINPASSWD);
-		print "<h3>ƒpƒXƒ[ƒh‚ğİ’è‚µ‚Ü‚µ‚½B</h3>\n<a href=\"$CGIURL\">Return</a>\n";
+		print "<h3>ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’è¨­å®šã—ã¾ã—ãŸã€‚</h3>\n<a href=\"$CGIURL\">Return</a>\n";
 	} else {
 		print <<_EOF;
-<h3>ƒpƒXƒ[ƒhİ’è‚ğs‚¢‚Ü‚·B</h3>
-‚±‚ê‚©‚çƒAƒbƒvƒ[ƒ_‚ÌŠÇ—‚Åg—p‚·‚éuŠÇ——pƒpƒXƒ[ƒhv‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B<br>
+<h3>ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰è¨­å®šã‚’è¡Œã„ã¾ã™ã€‚</h3>
+ã“ã‚Œã‹ã‚‰ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ€ã®ç®¡ç†ã§ä½¿ç”¨ã™ã‚‹ã€Œç®¡ç†ç”¨ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã€ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚<br>
 <form action="$CGIURL" method="POST">
 <input type="password" name="admpass" size=10>
 <input type="submit" value="Set">
@@ -1596,14 +1596,14 @@ _EOF
 
 ##################################################
 # Main
-# die ("Œ»İƒƒ“ƒeƒiƒ“ƒX’†‚Å‚·B\n");
+# die ("ç¾åœ¨ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ä¸­ã§ã™ã€‚\n");
 
 if ($ACCESS_CONTROL ne '' and !&checkdomain($ACCESS_CONTROL)) {
-	die("‚ ‚È‚½‚É‚ÍƒAƒNƒZƒXŒ ŒÀ‚ª‚ ‚è‚Ü‚¹‚ñB\n");
+	die("ã‚ãªãŸã«ã¯ã‚¢ã‚¯ã‚»ã‚¹æ¨©é™ãŒã‚ã‚Šã¾ã›ã‚“ã€‚\n");
 }
 
-# –{“–‚É‚»‚ÌƒTƒCƒg‚©‚ç‚Ì—ˆ‹q‚ğ‹Ö~‚µ‚½‚¢‚È‚ç
-# ˆê’èŠúŠÔƒAƒNƒZƒX‚ğ‹Ö~‚·‚é‚æ‚¤‚Èˆ—‚É‘‚«Š·‚¦‚é‚Æ‚¢‚¢‚©‚à
+# æœ¬å½“ã«ãã®ã‚µã‚¤ãƒˆã‹ã‚‰ã®æ¥å®¢ã‚’ç¦æ­¢ã—ãŸã„ãªã‚‰
+# ä¸€å®šæœŸé–“ã‚¢ã‚¯ã‚»ã‚¹ã‚’ç¦æ­¢ã™ã‚‹ã‚ˆã†ãªå‡¦ç†ã«æ›¸ãæ›ãˆã‚‹ã¨ã„ã„ã‹ã‚‚
 if (@EXCEPT_REFERER and !&checkreferer(\@EXCEPT_REFERER)) {
 	print "Location: http://www5b.biglobe.ne.jp/~iwasas/pu/P-main.html\n\n";
 	exit;
@@ -1628,27 +1628,27 @@ if (@UploadFiles) {
 	exit;
 }
 if ($OEKAKI_SW and $Form{m} eq 'E') {
-	&print_header('‚¨ŠG•`‚«');
-	&print_obititle('‚¨ŠG•`‚«');
+	&print_header('ãŠçµµæã');
+	&print_obititle('ãŠçµµæã');
 	&print_canvas();
 } elsif ($Form{m} eq 'I') {
-	&print_header('‰æ‘œ‰{——');
-	&print_obititle('‰æ‘œ‰{——');
+	&print_header('ç”»åƒé–²è¦§');
+	&print_obititle('ç”»åƒé–²è¦§');
 	&image_view();
 } elsif ($Form{m} eq 'S') {
-	&print_header('ƒtƒ@ƒCƒ‹ŒŸõ');
-	&print_obititle('ƒtƒ@ƒCƒ‹ŒŸõ');
+	&print_header('ãƒ•ã‚¡ã‚¤ãƒ«æ¤œç´¢');
+	&print_obititle('ãƒ•ã‚¡ã‚¤ãƒ«æ¤œç´¢');
 	&search();
 } elsif ($Form{m} eq 'D') {
-	&print_header('ƒtƒ@ƒCƒ‹íœ');
-	&print_obititle('ƒtƒ@ƒCƒ‹íœ');
+	&print_header('ãƒ•ã‚¡ã‚¤ãƒ«å‰Šé™¤');
+	&print_obititle('ãƒ•ã‚¡ã‚¤ãƒ«å‰Šé™¤');
 	&delete();
 } elsif ($Form{m} eq 'A') {
-	&print_header('•`‰æƒAƒjƒ[ƒVƒ‡ƒ“Ä¶');
-	&print_obititle('•`‰æƒAƒjƒ[ƒVƒ‡ƒ“Ä¶');
+	&print_header('æç”»ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³å†ç”Ÿ');
+	&print_obititle('æç”»ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³å†ç”Ÿ');
 	&oekaki_movie();
 } elsif ($Form{help} ne '') {
-	&print_header('NoticeI');
+	&print_header('Noticeï¼');
 	&help();
 } else {
 	&print_header();
